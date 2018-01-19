@@ -4,19 +4,29 @@
 
 Create a `.env` file with your environment variables. For example
 ```
+APP_NAME=My App
 DATABASE_URI=mongodb://localhost:27017/dev
 PORT=1337
 PARSE_MOUNT=/parse
 SERVER_URL=http://localhost
+PUBLIC_SERVER_URL=http://myurl.ca
 APP_ID=myAppId
 MASTER_KEY=myMasterKey
+READ_ONLY_MASTER_KEY=readOnlyMasterKey
+VERBOSE=0
+VERIFY_USER_EMAILS=false
+BUNDLE_ID=com.url.appname
+FACEBOOK_APP_IDS=someId
+EMAIL_DOMAIN=domain.com
+EMAIL_API=mailgun-api-key
 ```
 
 Then install the dependencies and build/start the server
 
 ```
 npm install
-npm start
+npm start // run the server
+node dashboard.js // run the dashboard browser (optional)
 ```
 
 ## Using it

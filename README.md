@@ -9,11 +9,11 @@ DATABASE_URI=mongodb://localhost:27017/dev
 PORT=1337
 PARSE_MOUNT=/parse
 SERVER_URL=http://localhost
-PUBLIC_SERVER_URL=http://myurl.ca
+PUBLIC_SERVER_URL=http://localhost:1337
 APP_ID=myAppId
 MASTER_KEY=myMasterKey
 READ_ONLY_MASTER_KEY=readOnlyMasterKey
-VERBOSE=0
+LOG_LEVEL=7
 VERIFY_USER_EMAILS=false
 BUNDLE_ID=com.url.appname
 FACEBOOK_APP_IDS=someId
@@ -27,6 +27,20 @@ Then install the dependencies and build/start the server
 npm install
 npm start // run the server
 node dashboard.js // run the dashboard browser (optional)
+```
+
+### Log Levels
+```
+{
+  emerg: 0,
+  alert: 1,
+  crit: 2,
+  error: 3,
+  warning: 4,
+  notice: 5,
+  info: 6,
+  debug: 7
+}
 ```
 
 ## Using it

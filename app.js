@@ -18,7 +18,7 @@ var api = new ParseServer({
   readOnlyMasterKey: process.env.READ_ONLY_MASTER_KEY,
   serverURL: serverURL,
   publicServerURL: process.env.PUBLIC_SERVER_URL,
-  verbose: process.env.VERBOSE,
+  logLevel: process.env.LOG_LEVEL || 7,
   // push: {
   //   android: {
   //       senderId: process.env.ANDROID_SENDER_ID || ''

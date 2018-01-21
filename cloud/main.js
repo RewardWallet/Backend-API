@@ -2,4 +2,8 @@
 // Push Notifications
 require('./push_notifications');
 
-// Add Other Files Below
+// Transactions
+require('./transactions');
+
+// Testing
+require('./testing');

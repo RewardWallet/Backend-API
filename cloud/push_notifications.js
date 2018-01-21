@@ -1,18 +1,15 @@
-//***********************************
-// PUSH NOTIFICATIONS
-//***********************************
 
 Parse.Cloud.define("pushToUser", function(request, response) {
 
-  var user = request.params.user;
-  var message = request.params.message;
+  const user = request.params.user;
+  const message = request.params.message;
 
-  var userQuery = new Parse.Query(Parse.User);
+  const userQuery = new Parse.Query(Parse.User);
   userQuery.equalTo('objectId', user);
-  var query = new Parse.Query(Parse.Installation);
+  const query = new Parse.Query(Parse.Installation);
   query.matchesQuery('user', userQuery);
 
-  var payload = {
+  const payload = {
     alert: message,
     sound: "default"
   };
@@ -32,15 +29,15 @@ Parse.Cloud.define("pushToUser", function(request, response) {
 
 Parse.Cloud.define("pushToUsers", function(request, response) {
 
-  var users = request.params.users;
-  var message = request.params.message;
+  const users = request.params.users;
+  const message = request.params.message;
 
-  var userQuery = new Parse.Query(Parse.User);
+  const userQuery = new Parse.Query(Parse.User);
   userQuery.containedIn('objectId', users);
-  var query = new Parse.Query(Parse.Installation);
+  const query = new Parse.Query(Parse.Installation);
   query.matchesQuery('user', userQuery);
 
-  var payload = {
+  const payload = {
     alert: message,
     sound: "default"
   };
@@ -60,10 +57,10 @@ Parse.Cloud.define("pushToUsers", function(request, response) {
 
 Parse.Cloud.define("pushToChannel", function (request, response) {
 
-  var channel = request.params.channel;
-  var message = request.params.message;
+  const channel = request.params.channel;
+  const message = request.params.message;
 
-  var payload = {
+  const payload = {
     alert: message,
     sound: "default"
   };
@@ -83,10 +80,10 @@ Parse.Cloud.define("pushToChannel", function (request, response) {
 
 Parse.Cloud.define("pushToChannels", function (request, response) {
 
-  var channels = request.params.channels;
-  var message = request.params.message;
+  const channels = request.params.channels;
+  const message = request.params.message;
 
-  var payload = {
+  const payload = {
     alert: message,
     sound: "default"
   };

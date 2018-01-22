@@ -97,3 +97,16 @@ Parse.Cloud.define("countUsers", function(request, response) {
     }
   });
 });
+
+// Tests openning and closing a transaction by creating a mock user and business
+// and then deleting them when complete
+Parse.Cloud.define("testTransaction", function(request, response) {
+
+  // 1. Create the user
+  Parse.Cloud.run("hello", {}).then(function(result) {
+      console.log(result);
+  }, function(error) {
+      console.error(error);
+  });
+
+});

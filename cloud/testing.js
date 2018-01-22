@@ -1,17 +1,19 @@
 
+// Returns a _User object id
 Parse.Cloud.define("createMockUser", function(request, response) {
 
   var user = new Parse.User();
   const name = Math.random().toString(36).substring(8);
   user.set("username", name);
   user.set("email", name + "@rewardwallet.com");
+  user.set("isFake", true);
 
   // Password with at least 8 char with at least 1 lower case, 1 upper case and 1 digit
   user.set("password", "abc123ABC");
 
   user.signUp(null, {
     success: function(user) {
-      response.success({"message": "Created user with objectId " + user.id, "code": 200});
+      response.success({"message": "Success", "objectId": user.id});
     },
     error: function(user, error) {
       response.error({"message": error.message, "code": error.code});
@@ -19,6 +21,7 @@ Parse.Cloud.define("createMockUser", function(request, response) {
   });
 });
 
+// Returns a Business object id
 Parse.Cloud.define("createMockBusiness", function(request, response) {
 
   var Business = Parse.Object.extend("Business");
@@ -27,10 +30,11 @@ Parse.Cloud.define("createMockBusiness", function(request, response) {
 
   business.set("name", "Business " + Math.random().toString(36).substring(3));
   business.set("username", username);
+  business.set("isFake", true);
 
   business.save(null, {
     success: function(business) {
-      response.success({"message": "Created business with objectId " + business.id, "code": 200});
+      response.success({"message": "Success", "objectId": business.id});
     },
     error: function(user, error) {
       response.error({"message": error.message, "code": error.code});
@@ -38,15 +42,17 @@ Parse.Cloud.define("createMockBusiness", function(request, response) {
   });
 });
 
+// Deletes all transactions
 Parse.Cloud.define("deleteMockTransactions", function(request, response) {
 
   var Transaction = Parse.Object.extend("Transaction");
   const transactionQuery = new Parse.Query(Transaction);
+  transactionQuery.equalTo("isFake", true);
   transactionQuery.find({
     success: function(results) {
       for (var i = 0; i < results.length; i++)
-        results[i].destroy({ useMasterKey: true });
-      response.success({"message":"Done"})
+        results[i].destroy({ useMasterKey: true }); // Ignore ACL with MasterKey
+      response.success({"message":"Success"})
     },
     error: function(error) {
       response.error({"message": error.message, "code": error.code});
@@ -54,15 +60,17 @@ Parse.Cloud.define("deleteMockTransactions", function(request, response) {
   });
 });
 
+// Deletes all businesses
 Parse.Cloud.define("deleteMockBusinesses", function(request, response) {
 
   var Business = Parse.Object.extend("Business");
   const businessQuery = new Parse.Query(Business);
+  businessQuery.equalTo("isFake", true);
   businessQuery.find({
     success: function(results) {
       for (var i = 0; i < results.length; i++)
-        results[i].destroy({ useMasterKey: true });
-        response.success({"message":"Done"})
+        results[i].destroy({ useMasterKey: true }); // Ignore ACL with MasterKey
+        response.success({"message":"Success"})
     },
     error: function(error) {
       response.error({"message": error.message, "code": error.code});
@@ -70,14 +78,16 @@ Parse.Cloud.define("deleteMockBusinesses", function(request, response) {
   });
 });
 
+// Deletes all users
 Parse.Cloud.define("deleteMockUsers", function(request, response) {
 
   const userQuery = new Parse.Query(Parse.User);
+  userQuery.equalTo("isFake", true);
   userQuery.find({
     success: function(results) {
       for (var i = 0; i < results.length; i++)
-        results[i].destroy({ useMasterKey: true });
-     response.success({"message":"Done"})
+        results[i].destroy({ useMasterKey: true }); // Ignore ACL with MasterKey
+     response.success({"message":"Success"})
     },
     error: function(error) {
       response.error({"message": error.message, "code": error.code});
@@ -85,12 +95,13 @@ Parse.Cloud.define("deleteMockUsers", function(request, response) {
   });
 });
 
+// Returns a count for the number of users
 Parse.Cloud.define("countUsers", function(request, response) {
 
   const query = new Parse.Query(Parse.User);
   query.find({
     success: function(results) {
-      response.success({"message": "Success", "code": 200, "count": results.length});
+      response.success({"message": "Success", "count": results.length});
     },
     error: function(error) {
       response.error({"message": error.message, "code": error.code});
@@ -102,11 +113,59 @@ Parse.Cloud.define("countUsers", function(request, response) {
 // and then deleting them when complete
 Parse.Cloud.define("testTransaction", function(request, response) {
 
+  console.log("[Begin Transaction Test]")
+
   // 1. Create the user
-  Parse.Cloud.run("hello", {}).then(function(result) {
-      console.log(result);
-  }, function(error) {
-      console.error(error);
+  console.log("> Creating User")
+  Parse.Cloud.run("createMockUser", {})
+    .then(function(result) {
+        const userId = result.objectId
+
+        // 2. Create the business
+        console.log("> Creating Business")
+        Parse.Cloud.run("createMockBusiness", {})
+          .then(function(result) {
+              const businessId = result.objectId
+
+              // 3. Open a transaction
+              console.log("> Openning Transaction")
+              Parse.Cloud.run("openTransaction", { amount: 10.00, businessId: businessId })
+                .then(function(result) {
+                    const transactionId = result.objectId
+
+                    // 4. Close the transaction
+                    console.log("> Closing Transaction")
+                    Parse.Cloud.run("closeTransaction", { transactionId: transactionId, userId: userId })
+                      .then(function(result) {
+
+                        // 5. Delete the user and business
+                        console.log("> Cleaning Up")
+                        Parse.Cloud.run("deleteMockUsers")
+                        Parse.Cloud.run("deleteMockBusinesses")
+                        Parse.Cloud.run("deleteMockTransactions")
+                        
+                        console.log("[Transaction Test SUCCEEDED]")
+                        response.success(result);
+
+                      })
+                      .catch(function(error) {
+                        console.log("[Transaction Test FAILED]")
+                        response.error({"message": error.message, "code": error.code});
+                    });
+                })
+                .catch(function(error) {
+                  console.log("[Transaction Test FAILED]")
+                  response.error({"message": error.message, "code": error.code});
+              });
+          })
+          .catch(function(error) {
+            console.log("[Transaction Test FAILED]")
+            response.error({"message": error.message, "code": error.code});
+        });
+    })
+    .catch(function(error) {
+      console.log("[Transaction Test FAILED]")
+      response.error({"message": error.message, "code": error.code});
   });
 
 });

@@ -74,7 +74,7 @@ app.get('/status', function(req, res) {
 
 var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
-    console.log('Now running at ' + serverURL);
+    console.log('> Listening at ' + serverURL);
 });
 
 // This will enable the Live Query real-time server

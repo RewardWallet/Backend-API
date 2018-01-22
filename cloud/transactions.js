@@ -108,7 +108,6 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
         .catch(function(error) {
           response.error({"message": error.message, "code": error.code});
       });
-
     })
     .catch(function(error) {
       response.error({"message": error.message, "code": error.code});

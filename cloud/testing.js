@@ -143,7 +143,7 @@ Parse.Cloud.define("testTransaction", function(request, response) {
                         Parse.Cloud.run("deleteMockUsers")
                         Parse.Cloud.run("deleteMockBusinesses")
                         Parse.Cloud.run("deleteMockTransactions")
-                        
+
                         console.log("[Transaction Test SUCCEEDED]")
                         response.success(result);
 

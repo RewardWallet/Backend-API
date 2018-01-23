@@ -6,7 +6,6 @@ Parse.Cloud.define("createMockUser", function(request, response) {
   const name = Math.random().toString(36).substring(8);
   user.set("username", name);
   user.set("email", name + "@rewardwallet.com");
-  user.set("isFake", true);
 
   // Password with at least 8 char with at least 1 lower case, 1 upper case and 1 digit
   user.set("password", "abc123ABC");
@@ -30,7 +29,6 @@ Parse.Cloud.define("createMockBusiness", function(request, response) {
 
   business.set("name", "Business " + Math.random().toString(36).substring(3));
   business.set("username", username);
-  business.set("isFake", true);
 
   business.save(null, {
     success: function(business) {
@@ -47,7 +45,6 @@ Parse.Cloud.define("deleteMockTransactions", function(request, response) {
 
   var Transaction = Parse.Object.extend("Transaction");
   const transactionQuery = new Parse.Query(Transaction);
-  transactionQuery.equalTo("isFake", true);
   transactionQuery.find({
     success: function(results) {
       for (var i = 0; i < results.length; i++)
@@ -65,7 +62,6 @@ Parse.Cloud.define("deleteMockBusinesses", function(request, response) {
 
   var Business = Parse.Object.extend("Business");
   const businessQuery = new Parse.Query(Business);
-  businessQuery.equalTo("isFake", true);
   businessQuery.find({
     success: function(results) {
       for (var i = 0; i < results.length; i++)
@@ -82,7 +78,6 @@ Parse.Cloud.define("deleteMockBusinesses", function(request, response) {
 Parse.Cloud.define("deleteMockUsers", function(request, response) {
 
   const userQuery = new Parse.Query(Parse.User);
-  userQuery.equalTo("isFake", true);
   userQuery.find({
     success: function(results) {
       for (var i = 0; i < results.length; i++)

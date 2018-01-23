@@ -38,7 +38,6 @@ Parse.Cloud.define("openTransaction", function(request, response) {
       var transaction = new Transaction();
       transaction.set("amount", amount)
       transaction.set("business", business)
-      transaction.set("isFake", business.get("isFake") || false);
 
       // 4. Only the business has read access to the transaction
       var acl = new Parse.ACL();

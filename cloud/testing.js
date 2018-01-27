@@ -3,6 +3,11 @@
 const Transaction = require('./Transaction').Transaction;
 const Business = require('./Business').Business;
 
+// Error handling function for cloud functions
+function handleError(error, response) {
+
+}
+
 // Returns a _User object id
 Parse.Cloud.define("createMockUser", function (request, response) {
 
@@ -13,6 +18,8 @@ Parse.Cloud.define("createMockUser", function (request, response) {
 
     // Password with at least 8 char with at least 1 lower case, 1 upper case and 1 digit
     user.set("password", "abc123ABC");
+
+
 
     user.signUp(null, {
         success: function (user) {
@@ -90,10 +97,15 @@ Parse.Cloud.define('deleteTransaction', function (request, response) {
 
     const transactionId = request.params.transactionId;
     const query = new Parse.Query(Transaction);
-    query.get(transactionId)
+    query.get(transactionId, { useMasterKey: true }) // Ignore ACL
         .then(function (transaction) {
-            transaction.destroy({useMasterKey: true});
-            response.success({"message": "Success"});
+            transaction.destroy({useMasterKey: true})
+                .then(function (result) {
+                    response.success({"message": "Success"});
+                })
+                .catch(function (error) {
+                    response.error({"message": error.message, "code": error.code});
+                });
         })
         .catch(function (error) {
             response.error({"message": error.message, "code": error.code});
@@ -104,48 +116,53 @@ Parse.Cloud.define('deleteTransaction', function (request, response) {
 Parse.Cloud.define("deleteAllTransactions", function (request, response) {
 
     const transactionQuery = new Parse.Query(Transaction);
-    transactionQuery.find({
-        success: function (results) {
+    transactionQuery.find({ useMasterKey: true }) // Ignore ACL with MasterKey
+        .then(function (results) {
             for (var i = 0; i < results.length; i++)
                 results[i].destroy({useMasterKey: true}); // Ignore ACL with MasterKey
             response.success({"message": "Success"});
-        },
-        error: function (error) {
+        })
+        .catch(function (error) {
             response.error({"message": error.message, "code": error.code});
-        }
-    });
+        });
 });
 
 // Deletes all businesses
 Parse.Cloud.define("deleteAllBusinesses", function (request, response) {
 
     const businessQuery = new Parse.Query(Business);
-    businessQuery.find({
-        success: function (results) {
+    businessQuery.find()
+        .then(function (results) {
             for (var i = 0; i < results.length; i++)
                 results[i].destroy({useMasterKey: true}); // Ignore ACL with MasterKey
             response.success({"message": "Success"});
-        },
-        error: function (error) {
+        })
+        .catch(function (error) {
             response.error({"message": error.message, "code": error.code});
-        }
-    });
+        });
 });
 
 // Deletes all users
 Parse.Cloud.define("deleteAllUsers", function (request, response) {
 
+    const handleError = function (error) {
+        response.error({"message": error.message, "code": error.code});
+    };
+
+    // 1. Create a query for all users
     const userQuery = new Parse.Query(Parse.User);
-    userQuery.find({
-        success: function (results) {
-            for (var i = 0; i < results.length; i++)
-                results[i].destroy({useMasterKey: true}); // Ignore ACL with MasterKey
+    userQuery.find().then(function (results) {
+
+        // 2. Create an array of async functions
+        var promises = [];
+        for (var i = 0; i < results.length; i++)
+            promises.push(results[i].destroy({useMasterKey: true})); // Ignore ACL with MasterKey
+
+        // 3. Execute async functions together and wait for all to complete
+        Promise.all(promises).then(function (results) {
             response.success({"message": "Success"});
-        },
-        error: function (error) {
-            response.error({"message": error.message, "code": error.code});
-        }
-    });
+        }).catch(handleError)
+    }).catch(handleError);
 });
 
 // Returns a count for the number of users
@@ -206,21 +223,21 @@ Parse.Cloud.define("testTransaction", function (request, response) {
                                                     Parse.Cloud.run("deleteTransaction", {transactionId: transactionId})
                                                         .then(function (result) {
 
-                                                            console.log("[Transaction Test END]");
+                                                            console.log("[Transaction Test COMPLETED]");
                                                             response.success(result);
                                                         })
-                                                        .then(function (error) {
-                                                            console.log("[Transaction Test CLEANUP FAILED]");
+                                                        .catch(function (error) {
+                                                            console.log("[Transaction Test TRANSACTION DELETE FAILED]");
                                                             response.error({"message": error.message, "code": error.code});
                                                         });
                                                 })
                                                 .catch(function (error) {
-                                                    console.log("[Transaction Test CLEANUP FAILED]");
+                                                    console.log("[Transaction Test BUSINESS DELETE FAILED]");
                                                     response.error({"message": error.message, "code": error.code});
                                                 });
                                         })
                                         .catch(function (error) {
-                                            console.log("[Transaction Test CLEANUP FAILED]");
+                                            console.log("[Transaction Test USER DELETE FAILED]");
                                             response.error({"message": error.message, "code": error.code});
                                         });
                                 })

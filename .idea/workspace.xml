@@ -2,10 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6154864-1528-42fc-8151-0b4ccc91b7e6" name="Default" comment="Add Some Delete Methods">
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T020106.403.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T020140.403.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T020141.403.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T020207.403.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T020208.403.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T020216.403.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T020249.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T020325.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T023212.404.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T023221.400.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T023533.400.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T023747.400.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T024609.400.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T024615.400.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T024818.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T024844.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T025453.404.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T025458.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T025503.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T025507.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T025526.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T025529.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T025535.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T025536.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T025538-1.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T025538-2.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T025538.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T025655.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T025907.200.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T030115.400.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-01-27T030139.400.json" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/cloud/testing.js" afterPath="$PROJECT_DIR$/cloud/testing.js" />
-      <change beforePath="$PROJECT_DIR$/cloud/transactions.js" afterPath="$PROJECT_DIR$/cloud/transactions.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,11 +69,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testing.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="testing.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cloud/testing.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="164" column="16" lean-forward="false" selection-start-line="164" selection-start-column="16" selection-end-line="164" selection-end-column="16" />
+            <state relative-caret-position="282">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="35" column="11" lean-forward="false" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -51,8 +92,8 @@
       <file leaf-file-name="transactions.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cloud/transactions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="93">
+              <caret line="80" column="29" lean-forward="true" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -71,7 +112,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response71.txt" root0="SKIP_INSPECTION" />
+    <setting file="dummy://restClient/response181.json" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -82,6 +123,7 @@
         <option value="$PROJECT_DIR$/cloud/push_notifications.js" />
         <option value="$PROJECT_DIR$/cloud/transactions.js" />
         <option value="$PROJECT_DIR$/cloud/testing.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -160,6 +202,118 @@
         <RestClientRequest>
           <option name="httpMethod" value="POST" />
           <option name="urlBase" value="http://localhost:1337" />
+          <option name="urlPath" value="/parse/functions/deleteAllUsers" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Application-ID" />
+                <option name="value" value="myAppId" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Master-Key" />
+                <option name="value" value="myMasterKey" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:1337" />
+          <option name="urlPath" value="/parse/functions/createMockUser" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Application-ID" />
+                <option name="value" value="myAppId" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Master-Key" />
+                <option name="value" value="myMasterKey" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:1337" />
+          <option name="urlPath" value="/parse/functions/deleteAllTransactions" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Application-ID" />
+                <option name="value" value="myAppId" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Master-Key" />
+                <option name="value" value="myMasterKey" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:1337" />
+          <option name="urlPath" value="/parse/functions/testTransaction" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Application-ID" />
+                <option name="value" value="myAppId" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Master-Key" />
+                <option name="value" value="myMasterKey" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:1337" />
           <option name="urlPath" value="/parse/functions/testTansactions" />
           <option name="headers">
             <list>
@@ -189,34 +343,6 @@
           <option name="httpMethod" value="POST" />
           <option name="urlBase" value="http://localhost:1337" />
           <option name="urlPath" value="/parse/functions/testTansaction" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="X-Parse-Application-ID" />
-                <option name="value" value="myAppId" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="X-Parse-Master-Key" />
-                <option name="value" value="myMasterKey" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:1337" />
-          <option name="urlPath" value="/parse/functions/deleteAllTransactions" />
           <option name="headers">
             <list>
               <KeyValuePair>
@@ -382,65 +508,9 @@
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:1337" />
-          <option name="urlPath" value="/parse/functions/deleteAllUsers" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="X-Parse-Application-ID" />
-                <option name="value" value="myAppId" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="X-Parse-Master-Key" />
-                <option name="value" value="myMasterKey" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
           <option name="httpMethod" value="GET" />
           <option name="urlBase" value="http://localhost:1337" />
           <option name="urlPath" value="/parse/functions/deleteAllUsers" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="X-Parse-Application-ID" />
-                <option name="value" value="myAppId" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="X-Parse-Master-Key" />
-                <option name="value" value="myMasterKey" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:1337" />
-          <option name="urlPath" value="/parse/functions/testTransaction" />
           <option name="headers">
             <list>
               <KeyValuePair>
@@ -659,7 +729,7 @@
       <workItem from="1517013379565" duration="322000" />
       <workItem from="1517013721852" duration="83000" />
       <workItem from="1517089507798" duration="646000" />
-      <workItem from="1517090174587" duration="4115000" />
+      <workItem from="1517090174587" duration="5979000" />
     </task>
     <task id="LOCAL-00001" summary="Add Some Delete Methods">
       <created>1517092274840</created>
@@ -672,7 +742,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5166000" />
+    <option name="totallyTimeSpent" value="7030000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="42" y="22" width="1398" height="878" extended-state="6" />
@@ -787,13 +857,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -842,14 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud/push_notifications.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cloud/Business.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -871,16 +926,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cloud/transactions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="93">
+          <caret line="80" column="29" lean-forward="true" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud/push_notifications.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cloud/testing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="164" column="16" lean-forward="false" selection-start-line="164" selection-start-column="16" selection-end-line="164" selection-end-column="16" />
+        <state relative-caret-position="282">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="35" column="11" lean-forward="false" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
           <folding />
         </state>
       </provider>

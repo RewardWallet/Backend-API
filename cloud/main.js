@@ -9,6 +9,6 @@ require('./transactions');
 // Testing
 require('./testing');
 
-Parse.Cloud.define("hello", function(request, response) {
-  response.success("Hello world!");
+Parse.Cloud.define("hello", function (request, response) {
+    response.success("Hello world!");
 });

@@ -1,0 +1,120 @@
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T023747.400.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T023533.400.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T023221.400.json
+
+###
+
+GET http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T023212.404.html
+
+###
+
+GET http://localhost:1337/parse/classes/_User
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T020325.200.json
+
+###
+
+GET http://localhost:1337/parse/schemas
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T020249.200.json
+
+###
+
+GET http://localhost:1337/parse/schemas?X-Parse-Application-ID=myAppId&X-Parse-Master-Key=myMasterKey
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-01-27T020216.403.txt
+
+###
+
+GET https://localhost:1337/parse/schemas?X-Parse-Application-ID=myAppId&X-Parse-Master-Key=myMasterKey
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET https://localhost:1337/parse/schemas?X-Parse-Application-ID=myAppId&X-Parse-Master-Key=myMasterKey
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:1337/parse/schemas?X-Parse-Application-ID=myAppId&X-Parse-Master-Key=myMasterKey
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-01-27T020208.403.txt
+
+###
+
+GET http://localhost:1337/parse/schemas?X-Parse-Application-ID=myAppId&X-Parse-Master-Key=myMasterKey
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-01-27T020207.403.txt
+
+###
+
+POST http://localhost:1337/parse/functions/createMockUser?X-Parse-Application-ID=myAppId&X-Parse-Master-Key=myMasterKey
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-01-27T020141.403.txt
+
+###
+
+POST http://localhost:1337/parse/functions/createMockUser?X-Parse-Application-ID=myAppId&X-Parse-Master-Key=myMasterKey
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-01-27T020140.403.txt
+
+###
+
+POST http://localhost:1337/parse/functions/createMockUser
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-01-27T020106.403.txt
+
+###
+

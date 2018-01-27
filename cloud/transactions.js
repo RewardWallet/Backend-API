@@ -1,7 +1,7 @@
 'use strict';
 
-require('./Transaction.js');
-require('./Business.js');
+const Transaction = require('./Transaction').Transaction;
+const Business = require('./Business').Business;
 
 // Opens a transaction object for the business
 // Parameter Example:

@@ -1,0 +1,155 @@
+{
+  "results": [
+    {
+      "objectId": "hudM4PMAuZ",
+      "business": {
+        "__type": "Pointer",
+        "className": "Business",
+        "objectId": "jmLmVj8J5g"
+      },
+      "amount": 10,
+      "createdAt": "2018-01-21T01:08:57.227Z",
+      "updatedAt": "2018-01-21T04:17:41.380Z",
+      "user": {
+        "__type": "Pointer",
+        "className": "_User",
+        "objectId": "OziBdXZcCf"
+      },
+      "ACL": {
+        "jmLmVj8J5g": {
+          "read": true
+        }
+      }
+    },
+    {
+      "objectId": "6bIvFOk9xx",
+      "amount": 10,
+      "business": {
+        "__type": "Pointer",
+        "className": "Business",
+        "objectId": "EvXGWenaGL"
+      },
+      "createdAt": "2018-01-22T19:49:00.447Z",
+      "updatedAt": "2018-01-22T19:49:00.472Z",
+      "user": {
+        "__type": "Pointer",
+        "className": "_User",
+        "objectId": "uGEvVHjMR2"
+      },
+      "ACL": {
+        "EvXGWenaGL": {
+          "read": true
+        }
+      }
+    },
+    {
+      "objectId": "aS0DNFIOE8",
+      "amount": 10,
+      "business": {
+        "__type": "Pointer",
+        "className": "Business",
+        "objectId": "1pNLkIxLNC"
+      },
+      "isFake": true,
+      "createdAt": "2018-01-22T19:54:28.108Z",
+      "updatedAt": "2018-01-22T19:54:28.136Z",
+      "user": {
+        "__type": "Pointer",
+        "className": "_User",
+        "objectId": "KMOeWlxRLh"
+      },
+      "ACL": {
+        "1pNLkIxLNC": {
+          "read": true
+        }
+      }
+    },
+    {
+      "objectId": "EPoxi51nhB",
+      "amount": 10,
+      "business": {
+        "__type": "Pointer",
+        "className": "Business",
+        "objectId": "AZxOFF3saA"
+      },
+      "isFake": true,
+      "createdAt": "2018-01-22T20:09:18.219Z",
+      "updatedAt": "2018-01-22T20:09:18.248Z",
+      "user": {
+        "__type": "Pointer",
+        "className": "_User",
+        "objectId": "nX3w4t1pJ9"
+      },
+      "ACL": {
+        "AZxOFF3saA": {
+          "read": true
+        }
+      }
+    },
+    {
+      "objectId": "FdqpLfs075",
+      "amount": 10,
+      "business": {
+        "__type": "Pointer",
+        "className": "Business",
+        "objectId": "4YMSLqFrj6"
+      },
+      "isFake": true,
+      "createdAt": "2018-01-23T02:03:02.637Z",
+      "updatedAt": "2018-01-23T02:03:02.685Z",
+      "user": {
+        "__type": "Pointer",
+        "className": "_User",
+        "objectId": "tF4WdFT7mS"
+      },
+      "ACL": {
+        "4YMSLqFrj6": {
+          "read": true
+        }
+      }
+    },
+    {
+      "objectId": "SWHNDeGYQL",
+      "amount": 10,
+      "business": {
+        "__type": "Pointer",
+        "className": "Business",
+        "objectId": "oQthm0dtgu"
+      },
+      "isFake": true,
+      "createdAt": "2018-01-23T02:03:42.798Z",
+      "updatedAt": "2018-01-23T02:03:42.843Z",
+      "user": {
+        "__type": "Pointer",
+        "className": "_User",
+        "objectId": "YE1FoUtBkM"
+      },
+      "ACL": {
+        "oQthm0dtgu": {
+          "read": true
+        }
+      }
+    },
+    {
+      "objectId": "2USTdmx1OH",
+      "amount": 10,
+      "business": {
+        "__type": "Pointer",
+        "className": "Business",
+        "objectId": "pkl4m7OULs"
+      },
+      "createdAt": "2018-01-27T22:48:18.267Z",
+      "updatedAt": "2018-01-27T22:48:18.292Z",
+      "user": {
+        "__type": "Pointer",
+        "className": "_User",
+        "objectId": "QmZgeVv3I7"
+      },
+      "ACL": {
+        "pkl4m7OULs": {
+          "read": true
+        }
+      }
+    }
+  ]
+}

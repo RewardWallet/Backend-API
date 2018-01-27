@@ -4,6 +4,212 @@ Cache-Control: no-cache
 X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+###
+
+POST http://localhost:1337/parse/functions/testTansactions
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T030139.400.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTansaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T030115.400.json
+
+###
+
+POST http://localhost:1337/parse/functions/deleteAllTransactions
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T025907.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/deleteAllTransactions
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T025655.200.json
+
+###
+
+GET http://localhost:1337/parse/classes/Transaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T025538-2.200.json
+
+###
+
+GET http://localhost:1337/parse/classes/Transaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T025538-1.200.json
+
+###
+
+GET http://localhost:1337/parse/classes/Transaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T025538.200.json
+
+###
+
+GET http://localhost:1337/parse/classes/Transaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T025536.200.json
+
+###
+
+GET http://localhost:1337/parse/classes/Transactions
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T025535.200.json
+
+###
+
+GET http://localhost:1337/parse/classes/Business
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T025529.200.json
+
+###
+
+GET http://localhost:1337/parse/classes/_User
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T025526.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/deleteAllTransactions
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T025507.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/deleteAllBusinesses
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T025503.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/deleteAllUsers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T025458.200.json
+
+###
+
+GET http://localhost:1337/parse/functions/deleteAllUsers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T025453.404.html
+
+###
+
+GET http://localhost:1337/parse/classes/_User
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T024844.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T024818.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T024615.400.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
+<> 2018-01-27T024609.400.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+
 <> 2018-01-27T023747.400.json
 
 ###

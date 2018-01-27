@@ -101,14 +101,14 @@ Parse.Cloud.define('deleteTransaction', function (request, response) {
 });
 
 // Deletes all transactions
-Parse.Cloud.define("deleteMockTransactions", function (request, response) {
+Parse.Cloud.define("deleteAllTransactions", function (request, response) {
 
     const transactionQuery = new Parse.Query(Transaction);
     transactionQuery.find({
         success: function (results) {
             for (var i = 0; i < results.length; i++)
                 results[i].destroy({useMasterKey: true}); // Ignore ACL with MasterKey
-            response.success({"message": "Success"})
+            response.success({"message": "Success"});
         },
         error: function (error) {
             response.error({"message": error.message, "code": error.code});
@@ -117,14 +117,14 @@ Parse.Cloud.define("deleteMockTransactions", function (request, response) {
 });
 
 // Deletes all businesses
-Parse.Cloud.define("deleteMockBusinesses", function (request, response) {
+Parse.Cloud.define("deleteAllBusinesses", function (request, response) {
 
     const businessQuery = new Parse.Query(Business);
     businessQuery.find({
         success: function (results) {
             for (var i = 0; i < results.length; i++)
                 results[i].destroy({useMasterKey: true}); // Ignore ACL with MasterKey
-            response.success({"message": "Success"})
+            response.success({"message": "Success"});
         },
         error: function (error) {
             response.error({"message": error.message, "code": error.code});
@@ -133,14 +133,14 @@ Parse.Cloud.define("deleteMockBusinesses", function (request, response) {
 });
 
 // Deletes all users
-Parse.Cloud.define("deleteMockUsers", function (request, response) {
+Parse.Cloud.define("deleteAllUsers", function (request, response) {
 
     const userQuery = new Parse.Query(Parse.User);
     userQuery.find({
         success: function (results) {
             for (var i = 0; i < results.length; i++)
                 results[i].destroy({useMasterKey: true}); // Ignore ACL with MasterKey
-            response.success({"message": "Success"})
+            response.success({"message": "Success"});
         },
         error: function (error) {
             response.error({"message": error.message, "code": error.code});
@@ -162,62 +162,85 @@ Parse.Cloud.define("countUsers", function (request, response) {
     });
 });
 
-// Tests openning and closing a transaction by creating a mock user and business
+// Tests opening and closing a transaction by creating a mock user and business
 // and then deleting them when complete
 Parse.Cloud.define("testTransaction", function (request, response) {
 
-    console.log("[Begin Transaction Test]")
+    console.log("[Begin Transaction START]");
 
     // 1. Create the user
-    console.log("> Creating User")
-    Parse.Cloud.run("createMockUser", {})
+    console.log("> Creating User");
+    Parse.Cloud.run("createMockUser")
         .then(function (result) {
-            const userId = result.objectId
+            const userId = result.objectId;
 
             // 2. Create the business
-            console.log("> Creating Business")
+            console.log("> Creating Business");
             Parse.Cloud.run("createMockBusiness", {})
                 .then(function (result) {
-                    const businessId = result.objectId
+                    const businessId = result.objectId;
 
                     // 3. Open a transaction
-                    console.log("> Openning Transaction")
-                    Parse.Cloud.run("openTransaction", {amount: 10.00, businessId: businessId})
+                    console.log("> Openning Transaction");
+                    Parse.Cloud.run("openTransaction", {amount: 10.12, businessId: businessId})
                         .then(function (result) {
-                            const transactionId = result.objectId
+                            const transactionId = result.objectId;
 
                             // 4. Close the transaction
-                            console.log("> Closing Transaction")
+                            console.log("> Closing Transaction");
                             Parse.Cloud.run("closeTransaction", {transactionId: transactionId, userId: userId})
                                 .then(function (result) {
 
                                     // 5. Delete the user and business
-                                    console.log("> Cleaning Up")
-                                    Parse.Cloud.run("deleteUser", {userId: userId});
-                                    Parse.Cloud.run("deleteBusiness", {businessId: businessId});
-                                    Parse.Cloud.run("deleteTransaction", {transactionId: transactionId});
+                                    console.log("> Transaction Test Passed");
+                                    console.log("> Cleaning Up");
+                                    console.log("> Deleting User");
+                                    Parse.Cloud.run("deleteUser", {userId: userId})
+                                        .then(function (result) {
 
-                                    console.log("[Transaction Test SUCCEEDED]")
-                                    response.success(result);
+                                            console.log("> Deleting Business");
+                                            Parse.Cloud.run("deleteBusiness", {businessId: businessId})
+                                                .then(function (result) {
 
+                                                    console.log("> Deleting Transaction");
+                                                    Parse.Cloud.run("deleteTransaction", {transactionId: transactionId})
+                                                        .then(function (result) {
+
+                                                            console.log("[Transaction Test END]");
+                                                            response.success(result);
+                                                        })
+                                                        .then(function (error) {
+                                                            console.log("[Transaction Test CLEANUP FAILED]");
+                                                            response.error({"message": error.message, "code": error.code});
+                                                        });
+                                                })
+                                                .catch(function (error) {
+                                                    console.log("[Transaction Test CLEANUP FAILED]");
+                                                    response.error({"message": error.message, "code": error.code});
+                                                });
+                                        })
+                                        .catch(function (error) {
+                                            console.log("[Transaction Test CLEANUP FAILED]");
+                                            response.error({"message": error.message, "code": error.code});
+                                        });
                                 })
                                 .catch(function (error) {
-                                    console.log("[Transaction Test FAILED]")
+                                    console.log("[Transaction Test FAILED]");
                                     response.error({"message": error.message, "code": error.code});
                                 });
                         })
                         .catch(function (error) {
-                            console.log("[Transaction Test FAILED]")
+                            console.log("[Transaction Test FAILED]");
                             response.error({"message": error.message, "code": error.code});
                         });
                 })
                 .catch(function (error) {
-                    console.log("[Transaction Test FAILED]")
+                    console.log("[Transaction Test FAILED]");
                     response.error({"message": error.message, "code": error.code});
                 });
         })
         .catch(function (error) {
-            console.log("[Transaction Test FAILED]")
+            console.log("[Transaction Test FAILED]");
             response.error({"message": error.message, "code": error.code});
         });
 

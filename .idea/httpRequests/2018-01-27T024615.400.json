@@ -1,0 +1,9 @@
+{
+  "code": 141,
+  "error": {
+    "message": {
+      "message": "Transaction is not defined"
+    },
+    "code": 141
+  }
+}

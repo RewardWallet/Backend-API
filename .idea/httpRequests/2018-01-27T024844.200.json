@@ -1,0 +1,84 @@
+{
+  "results": [
+    {
+      "objectId": "1tUOCBMdoM",
+      "username": "v3180i2vxf450zfr",
+      "email": "v3180i2vxf450zfr@rewardwallet.com",
+      "createdAt": "2018-01-27T22:32:18.892Z",
+      "updatedAt": "2018-01-27T22:32:18.892Z",
+      "ACL": {
+        "*": {
+          "read": true
+        },
+        "1tUOCBMdoM": {
+          "read": true,
+          "write": true
+        }
+      }
+    },
+    {
+      "objectId": "4mBHATsXvP",
+      "username": "ii2e7r9gfitg1fw29",
+      "email": "ii2e7r9gfitg1fw29@rewardwallet.com",
+      "createdAt": "2018-01-27T22:35:32.153Z",
+      "updatedAt": "2018-01-27T22:35:32.153Z",
+      "ACL": {
+        "*": {
+          "read": true
+        },
+        "4mBHATsXvP": {
+          "read": true,
+          "write": true
+        }
+      }
+    },
+    {
+      "objectId": "dK8p7YHRPN",
+      "username": "cauv8k25bezx9meljtt9",
+      "email": "cauv8k25bezx9meljtt9@rewardwallet.com",
+      "createdAt": "2018-01-27T22:37:46.172Z",
+      "updatedAt": "2018-01-27T22:37:46.172Z",
+      "ACL": {
+        "*": {
+          "read": true
+        },
+        "dK8p7YHRPN": {
+          "read": true,
+          "write": true
+        }
+      }
+    },
+    {
+      "objectId": "qDm7KLlPFY",
+      "username": "t2ug4nyhgkpb0muz0k9",
+      "email": "t2ug4nyhgkpb0muz0k9@rewardwallet.com",
+      "createdAt": "2018-01-27T22:46:09.641Z",
+      "updatedAt": "2018-01-27T22:46:09.641Z",
+      "ACL": {
+        "*": {
+          "read": true
+        },
+        "qDm7KLlPFY": {
+          "read": true,
+          "write": true
+        }
+      }
+    },
+    {
+      "objectId": "NlvZa4sBEm",
+      "username": "bzb01nv3rgii50442t9",
+      "email": "bzb01nv3rgii50442t9@rewardwallet.com",
+      "createdAt": "2018-01-27T22:46:15.111Z",
+      "updatedAt": "2018-01-27T22:46:15.111Z",
+      "ACL": {
+        "*": {
+          "read": true
+        },
+        "NlvZa4sBEm": {
+          "read": true,
+          "write": true
+        }
+      }
+    }
+  ]
+}

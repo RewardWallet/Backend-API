@@ -1,14 +1,7 @@
+'use strict';
 
-
-class Transaction extends Parse.Object {
-
-  constructor() {
-    // Pass the ClassName to the Parse.Object constructor
-    super('Transaction');
-    // All other initialization
-  }
-
-}
+require('./Transaction.js');
+require('./Business.js');
 
 // Opens a transaction object for the business
 // Parameter Example:

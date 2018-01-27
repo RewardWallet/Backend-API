@@ -1,3 +1,4 @@
+'use strict';
 
 // Push Notifications
 require('./push_notifications');

@@ -1,5 +1,6 @@
 'use strict';
 
+const User = require('./User').User;
 const Transaction = require('./Transaction').Transaction;
 const Business = require('./Business').Business;
 
@@ -16,21 +17,21 @@ Parse.Cloud.define("openTransaction", function(request, response) {
   const businessId = request.params.businessId;
 
   // 1. Check for undefined parameters
-  if (typeof amount == 'undefined')
+  if (typeof amount === 'undefined')
     return response.error({"message":"Undefined Transaction Amount"});
 
-  if (typeof businessId == 'undefined')
+  if (typeof businessId === 'undefined')
     return response.error({"message":"Undefined Business"});
 
   // 2. Get the business object to assign as a pointer
-  const query = new Parse.Query(Parse.Object.extend("Business"));
+  const query = new Parse.Query(Business);
   query.get(businessId)
     .then(function(business) {
 
       // 3. Create a new Transaction object and assign the amount and business owner
       var transaction = new Transaction();
-      transaction.set("amount", amount)
-      transaction.set("business", business)
+      transaction.set("amount", amount);
+      transaction.set("business", business);
 
       // 4. Only the business has read access to the transaction
       var acl = new Parse.ACL();
@@ -65,14 +66,14 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
   const userId = request.params.userId;
 
   // 1. Check for undefined parameters
-  if (typeof transactionId == 'undefined')
+  if (typeof transactionId === 'undefined')
     return response.error({"message":"Undefined Transaction ID"});
 
-  if (typeof userId == 'undefined')
+  if (typeof userId === 'undefined')
     return response.error({"message":"Undefined User"});
 
   // 2. Get the user object to assign as a pointer
-  const query = new Parse.Query(Parse.User);
+  const query = new Parse.Query(User);
   query.get(userId)
     .then(function(user) {
 
@@ -82,7 +83,7 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
         .then(function(transaction) {
 
           // 4. Transactions cannot be overritten once closed
-          if (typeof transaction.get("user") != 'undefined')
+          if (typeof transaction.get("user") !== 'undefined')
             return response.error({"message":"Requested transaction is already closed"});
 
           // 5. Assign a user pointer to the transaction
@@ -114,7 +115,7 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
 //   query.get(request.object.id)
 //     .then(function(transaction) {
 //       var userId = transaction.user
-//       if (typeof userId != 'undefined')
+//       if (typeof userId !== 'undefined')
 //       {
 //         var amount = transaction.amount
 //         var businessName = transaction.business.name

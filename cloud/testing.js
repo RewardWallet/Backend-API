@@ -5,8 +5,14 @@ const Business = require('./Business').Business;
 
 // Introduces random error into the test suite to ensure error handling is correct
 function randomError(response) {
-    let number = Math.floor((Math.random() * 10) + 1); // random number between 1 and 10
-    if (number === 5) {
+
+    const isRandomErrorEnabled = false;
+
+    const upperBound = 10;
+    const lowerBound = 1;
+    const number = Math.floor((Math.random() * upperBound) + lowerBound);
+
+    if ((number === 5) && isRandomErrorEnabled) {
         // If the number was 5, trigger a random error
         response.error({"message":"Random Error Occurred"});
         return false;
@@ -22,7 +28,7 @@ Parse.Cloud.define("createMockUser", function (request, response) {
         response.error({"message": error.message, "code": error.code});
     };
 
-    // if !randomError(response) { return }
+    if (!randomError(response)) { return } // Exit on random error
 
     var user = new Parse.User();
     const name = Math.random().toString(36).substring(8);
@@ -48,6 +54,8 @@ Parse.Cloud.define("deleteUser", function (request, response) {
         response.error({"message": error.message, "code": error.code});
     };
 
+    if (!randomError(response)) { return } // Exit on random error
+
     const userId = request.params.userId;
     const query = new Parse.Query(Parse.User);
     query.get(userId).then(function (user) {
@@ -63,6 +71,8 @@ Parse.Cloud.define("createMockBusiness", function (request, response) {
     const handleError = function (error) {
         response.error({"message": error.message, "code": error.code});
     };
+
+    if (!randomError(response)) { return } // Exit on random error
 
     var business = new Business();
     business.set("name", "Business " + Math.random().toString(36).substring(3));
@@ -84,6 +94,8 @@ Parse.Cloud.define("deleteBusiness", function (request, response) {
         response.error({"message": error.message, "code": error.code});
     };
 
+    if (!randomError(response)) { return } // Exit on random error
+
     const businessId = request.params.businessId;
     const query = new Parse.Query(Business);
     query.get(businessId).then(function (business) {
@@ -104,6 +116,8 @@ Parse.Cloud.define('deleteTransaction', function (request, response) {
         response.error({"message": error.message, "code": error.code});
     };
 
+    if (!randomError(response)) { return } // Exit on random error
+
     const transactionId = request.params.transactionId;
     const query = new Parse.Query(Transaction);
     // Query using the master key to ignore ACL
@@ -121,6 +135,8 @@ Parse.Cloud.define("deleteAllTransactions", function (request, response) {
     const handleError = function (error) {
         response.error({"message": error.message, "code": error.code});
     };
+
+    if (!randomError(response)) { return } // Exit on random error
     
     const transactionQuery = new Parse.Query(Transaction);
     // Query using the master key to ignore ACL

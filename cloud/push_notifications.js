@@ -1,5 +1,8 @@
 'use strict';
 
+const PUSH_SUCCESS = {"message":"Notification Delivered"};
+const PUSH_ERROR = function(error) {"message": "Delivery Error" + error.message};
+
 Parse.Cloud.define("pushToUser", function (request, response) {
 
     const user = request.params.user;
@@ -15,17 +18,11 @@ Parse.Cloud.define("pushToUser", function (request, response) {
         sound: "default"
     };
 
-    Parse.Push.send({
-        data: payload,
-        where: query
-    }, {
-        useMasterKey: true
-    })
-        .then(function () {
-            response.success("PUSH OK");
-        }, function (error) {
-            response.error("PUSH ERROR:" + error.message);
-        });
+    Parse.Push.send({ data: payload, where: query }, { useMasterKey: true }).then(function () {
+        response.success(PUSH_SUCCESS);
+    }, function (error) {
+        response.error(PUSH_ERROR(error));
+    });
 });
 
 Parse.Cloud.define("pushToUsers", function (request, response) {
@@ -43,17 +40,11 @@ Parse.Cloud.define("pushToUsers", function (request, response) {
         sound: "default"
     };
 
-    Parse.Push.send({
-        data: payload,
-        where: query
-    }, {
-        useMasterKey: true
-    })
-        .then(function () {
-            response.success("PUSH OK");
-        }, function (error) {
-            response.error("PUSH ERROR:" + error.message);
-        });
+    Parse.Push.send({ data: payload,  where: query }, { useMasterKey: true }).then(function () {
+        response.success(PUSH_SUCCESS);
+    }, function (error) {
+        response.error(PUSH_ERROR(error));
+    });
 });
 
 Parse.Cloud.define("pushToChannel", function (request, response) {
@@ -66,17 +57,11 @@ Parse.Cloud.define("pushToChannel", function (request, response) {
         sound: "default"
     };
 
-    Parse.Push.send({
-        channels: [channel],
-        data: payload
-    }, {
-        useMasterKey: true
-    })
-        .then(function () {
-            response.success("PUSH OK");
-        }, function (error) {
-            response.error("PUSH ERROR:" + error.message);
-        });
+    Parse.Push.send({ channels: [channel],  data: payload }, { useMasterKey: true }).then(function () {
+        response.success(PUSH_SUCCESS);
+    }, function (error) {
+        response.error(PUSH_ERROR(error));
+    });
 });
 
 Parse.Cloud.define("pushToChannels", function (request, response) {
@@ -89,15 +74,9 @@ Parse.Cloud.define("pushToChannels", function (request, response) {
         sound: "default"
     };
 
-    Parse.Push.send({
-        channels: channels,
-        data: payload
-    }, {
-        useMasterKey: true
-    })
-        .then(function () {
-            response.success("PUSH OK");
-        }, function (error) {
-            response.error("PUSH ERROR:" + error.message);
-        });
+    Parse.Push.send({ channels: channels, data: payload }, { useMasterKey: true }) .then(function () {
+        response.success(PUSH_SUCCESS);
+    }, function (error) {
+        response.error(PUSH_ERROR(error));
+    });
 });

@@ -15,22 +15,23 @@ function randomError(response) {
 
     if ((number === 5) && isRandomErrorEnabled) {
         // If the number was 5, trigger a random error
-        response.error({"message":"Random Error Occurred", "code":-123});
+        handleTestError("Random Error Occurred", response);
         return false;
     } else {
         return true;
     }
 }
 
-function handleTransactionError(error, response) {
-    console.log('\x1b[31m%s\x1b[0m', error.message);
-    response.error(error.message);
+function handleTestError(error, response) {
+    const errorMessage = error.message.charAt(0).toUpperCase() + error.message.slice(1); // Capitalize first letter
+    console.log('\x1b[31m%s\x1b[0m', errorMessage);
+    response.error(errorMessage);
 }
 
 // Returns a _User object id
 Parse.Cloud.define("createMockUser", function (request, response) {
 
-    const handleError = function (error) { handleTransactionError(error, response); };
+    const handleError = function (error) { handleTestError(error, response); };
 
     if (!randomError(response)) { return } // Exit on random error
 
@@ -54,7 +55,7 @@ Parse.Cloud.define("createMockUser", function (request, response) {
 // }
 Parse.Cloud.define("deleteUser", function (request, response) {
 
-    const handleError = function (error) { handleTransactionError(error, response); };
+    const handleError = function (error) { handleTestError(error, response); };
 
     if (!randomError(response)) { return } // Exit on random error
 
@@ -71,13 +72,16 @@ Parse.Cloud.define("deleteUser", function (request, response) {
 // Returns a Business object id
 Parse.Cloud.define("createMockBusiness", function (request, response) {
 
-    const handleError = function (error) { handleTransactionError(error, response); };
+    const handleError = function (error) { handleTestError(error, response); };
 
     if (!randomError(response)) { return } // Exit on random error
 
     var business = new Business();
-    business.set("name", "mock-Business " + Math.random().toString(36).substring(3));
-    business.set("username", Math.random().toString(36).substring(8));
+
+    let name = "mock-" + Math.random().toString(36).substring(3);
+    business.set("name", "Business " + name);
+    business.set("username", name);
+    business.set("email", name + "@rewardwallet.com");
     
     business.save().then(function (business) {
         response.success({"message": "Success", "objectId": business.id});
@@ -91,7 +95,7 @@ Parse.Cloud.define("createMockBusiness", function (request, response) {
 // }
 Parse.Cloud.define("deleteBusiness", function (request, response) {
 
-    const handleError = function (error) { handleTransactionError(error, response); };
+    const handleError = function (error) { handleTestError(error, response); };
 
     if (!randomError(response)) { return } // Exit on random error
 
@@ -111,7 +115,7 @@ Parse.Cloud.define("deleteBusiness", function (request, response) {
 // }
 Parse.Cloud.define('deleteTransaction', function (request, response) {
 
-    const handleError = function (error) { handleTransactionError(error, response); };
+    const handleError = function (error) { handleTestError(error, response); };
 
     if (!randomError(response)) { return } // Exit on random error
 
@@ -129,13 +133,13 @@ Parse.Cloud.define('deleteTransaction', function (request, response) {
 // Deletes all transactions
 Parse.Cloud.define("deleteAllTransactions", function (request, response) {
 
-    const handleError = function (error) { handleTransactionError(error, response); };
+    const handleError = function (error) { handleTestError(error, response); };
 
     if (!randomError(response)) { return } // Exit on random error
     
     const transactionQuery = new Parse.Query(Transaction);
     // Query using the master key to ignore ACL
-    transactionQuery.find().then(function (results) {
+    transactionQuery.find({useMasterKey: true}).then(function (results) {
 
         // Create an array of async functions
         var promises = [];
@@ -152,7 +156,7 @@ Parse.Cloud.define("deleteAllTransactions", function (request, response) {
 // Deletes all businesses
 Parse.Cloud.define("deleteAllBusinesses", function (request, response) {
 
-    const handleError = function (error) { handleTransactionError(error, response); };
+    const handleError = function (error) { handleTestError(error, response); };
     
     const businessQuery = new Parse.Query(Business);
     businessQuery.find().then(function (results) {
@@ -172,7 +176,7 @@ Parse.Cloud.define("deleteAllBusinesses", function (request, response) {
 // Deletes all users
 Parse.Cloud.define("deleteAllUsers", function (request, response) {
 
-    const handleError = function (error) { handleTransactionError(error, response); };
+    const handleError = function (error) { handleTestError(error, response); };
 
     // 1. Create a query for all users
     const userQuery = new Parse.Query(User);
@@ -181,9 +185,9 @@ Parse.Cloud.define("deleteAllUsers", function (request, response) {
         // Create an array of async functions
         var promises = [];
         for (var i = 0; i < results.length; i++) {
-            promises.push(results[i].destroy({useMasterKey: true})); // Ignore ACL with MasterKey
             promises.push(Parse.Cloud.run("deleteSessions", { userId: results[i].objectId }));
             promises.push(Parse.Cloud.run("deleteInstallations", { userId: results[i].objectId }));
+            promises.push(results[i].destroy({useMasterKey: true})); // Ignore ACL with MasterKey
         }
         // Execute async functions together and wait for all to complete
         Promise.all(promises).then(function (results) {
@@ -199,13 +203,30 @@ Parse.Cloud.define("deleteAllUsers", function (request, response) {
 // }
 Parse.Cloud.define("deleteSessions", function (request, response) {
 
-    const handleError = function (error) { handleTransactionError(error, response); };
+    const handleError = function (error) { handleTestError(error, response); };
 
     const userId = request.params.userId;
 
     const Session = Parse.Object.extend('_Session');
     const query = new Parse.Query(Session);
     query.equalTo('user', userId);
+    query.find({useMasterKey: true}).then(function (results) {
+        var promises = [];
+        for (var i = 0; i < results.length; i++)
+            promises.push(results[i].destroy({useMasterKey: true})); // Destroy with master key to ignore ACL
+        Promise.all(promises).then(function (result) {
+            response.success({"message": "Success"});
+        }).catch(handleError)
+    }).catch(handleError);
+});
+
+// Deletes all users
+Parse.Cloud.define("deleteAllSessions", function (request, response) {
+
+    const handleError = function (error) { handleTestError(error, response); };
+
+    const Session = Parse.Object.extend('_Session');
+    const query = new Parse.Query(Session);
     query.find({useMasterKey: true}).then(function (results) {
         var promises = [];
         for (var i = 0; i < results.length; i++)
@@ -223,7 +244,7 @@ Parse.Cloud.define("deleteSessions", function (request, response) {
 // }
 Parse.Cloud.define("deleteInstallations", function (request, response) {
 
-    const handleError = function (error) { handleTransactionError(error, response); };
+    const handleError = function (error) { handleTestError(error, response); };
 
     const userId = request.params.userId;
 
@@ -250,7 +271,7 @@ Parse.Cloud.define("testTransaction", function (request, response) {
 
     const handleError = function (error) {
         console.log('\x1b[31m%s\x1b[0m', "[Transaction Test FAILED]");
-        handleTransactionError(error, response);
+        handleTestError(error, response);
     };
 
     const cleanup = !(typeof request.params.cleanup === 'undefined') ? request.params.cleanup : true;

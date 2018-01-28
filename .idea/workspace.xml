@@ -4,8 +4,6 @@
     <list default="true" id="f6154864-1528-42fc-8151-0b4ccc91b7e6" name="Default" comment="Add Some Delete Methods">
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/cloud/push_notifications.js" afterPath="$PROJECT_DIR$/cloud/push_notifications.js" />
-      <change beforePath="$PROJECT_DIR$/cloud/testing.js" afterPath="$PROJECT_DIR$/cloud/testing.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -41,8 +39,28 @@
       <file leaf-file-name="testing.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cloud/testing.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="-104">
+              <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="transactions.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cloud/transactions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="51" column="12" lean-forward="false" selection-start-line="51" selection-start-column="12" selection-end-line="53" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cloud/User.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -57,21 +75,27 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>response.error({&quot;message&quot;: error.message, &quot;code&quot;: error.code});</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response187.json" root0="SKIP_INSPECTION" />
+    <setting file="dummy://restClient/response459.json" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/cloud/main.js" />
         <option value="$PROJECT_DIR$/cloud/Transaction.js" />
+        <option value="$PROJECT_DIR$/cloud/push_notifications.js" />
+        <option value="$PROJECT_DIR$/cloud/User.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/cloud/Business.js" />
         <option value="$PROJECT_DIR$/cloud/transactions.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/cloud/push_notifications.js" />
         <option value="$PROJECT_DIR$/cloud/testing.js" />
       </list>
     </option>
@@ -93,7 +117,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="42" />
     <option name="y" value="22" />
     <option name="width" value="1398" />
@@ -179,35 +203,7 @@
         <RestClientRequest>
           <option name="httpMethod" value="POST" />
           <option name="urlBase" value="http://localhost:1337" />
-          <option name="urlPath" value="/parse/functions/deleteAllUsers" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="X-Parse-Application-ID" />
-                <option name="value" value="myAppId" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="X-Parse-Master-Key" />
-                <option name="value" value="myMasterKey" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:1337" />
-          <option name="urlPath" value="/parse/functions/createMockUser" />
+          <option name="urlPath" value="/parse/functions/deleteAllSessions" />
           <option name="headers">
             <list>
               <KeyValuePair>
@@ -236,6 +232,337 @@
           <option name="httpMethod" value="POST" />
           <option name="urlBase" value="http://localhost:1337" />
           <option name="urlPath" value="/parse/functions/deleteAllTransactions" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Application-ID" />
+                <option name="value" value="myAppId" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Master-Key" />
+                <option name="value" value="myMasterKey" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:1337" />
+          <option name="urlPath" value="/parse/functions/deleteAllBusinesses" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Application-ID" />
+                <option name="value" value="myAppId" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Master-Key" />
+                <option name="value" value="myMasterKey" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:1337" />
+          <option name="urlPath" value="/parse/functions/deleteAllUsers" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Application-ID" />
+                <option name="value" value="myAppId" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Master-Key" />
+                <option name="value" value="myMasterKey" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:1337" />
+          <option name="urlPath" value="/parse/functions/testTransaction" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Application-ID" />
+                <option name="value" value="myAppId" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Master-Key" />
+                <option name="value" value="myMasterKey" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="cleanup" />
+                <option name="value" value="false" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:1337" />
+          <option name="urlPath" value="/parse/functions/testTransaction" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Application-ID" />
+                <option name="value" value="myAppId" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Master-Key" />
+                <option name="value" value="myMasterKey" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="cleanUp" />
+                <option name="value" value="false" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:1337" />
+          <option name="urlPath" value="/parse/functions/testTransaction" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Application-ID" />
+                <option name="value" value="myAppId" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Master-Key" />
+                <option name="value" value="myMasterKey" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="cleanUp" />
+                <option name="value" value="false" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:1337" />
+          <option name="urlPath" value="/parse/functions/testTransation" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Application-ID" />
+                <option name="value" value="myAppId" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Master-Key" />
+                <option name="value" value="myMasterKey" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="cleanUp" />
+                <option name="value" value="false" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:1337" />
+          <option name="urlPath" value="/parse/functions/deleteAllTransactions" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Application-ID" />
+                <option name="value" value="myAppId" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Master-Key" />
+                <option name="value" value="myMasterKey" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="cleanUp" />
+                <option name="value" value="false" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:1337" />
+          <option name="urlPath" value="/parse/functions/deleteAllBusinesses" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Application-ID" />
+                <option name="value" value="myAppId" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Master-Key" />
+                <option name="value" value="myMasterKey" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="cleanUp" />
+                <option name="value" value="false" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:1337" />
+          <option name="urlPath" value="/parse/functions/deleteAllUsers" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Application-ID" />
+                <option name="value" value="myAppId" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Parse-Master-Key" />
+                <option name="value" value="myMasterKey" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="cleanUp" />
+                <option name="value" value="false" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:1337" />
+          <option name="urlPath" value="/parse/functions/createMockUser" />
           <option name="headers">
             <list>
               <KeyValuePair>
@@ -404,34 +731,6 @@
           <option name="httpMethod" value="GET" />
           <option name="urlBase" value="http://localhost:1337" />
           <option name="urlPath" value="/parse/classes/_User" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="X-Parse-Application-ID" />
-                <option name="value" value="myAppId" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="X-Parse-Master-Key" />
-                <option name="value" value="myMasterKey" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:1337" />
-          <option name="urlPath" value="/parse/functions/deleteAllBusinesses" />
           <option name="headers">
             <list>
               <KeyValuePair>
@@ -643,8 +942,9 @@
         </RuleState>
       </list>
     </option>
+    <option name="contentProportion" value="0.15704894" />
   </component>
-  <component name="RunManager" selected="npm.API">
+  <component name="RunManager" selected="Node.js.Dashboard">
     <configuration name="Dashboard" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="dashboard.js" working-dir="$PROJECT_DIR$" />
     <configuration name="API" type="js.build_tools.npm" factoryName="npm">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -678,7 +978,7 @@
       <workItem from="1517013379565" duration="322000" />
       <workItem from="1517013721852" duration="83000" />
       <workItem from="1517089507798" duration="646000" />
-      <workItem from="1517090174587" duration="8273000" />
+      <workItem from="1517090174587" duration="15896000" />
     </task>
     <task id="LOCAL-00001" summary="Add Some Delete Methods">
       <created>1517092274840</created>
@@ -691,19 +991,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9324000" />
+    <option name="totallyTimeSpent" value="16947000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="42" y="22" width="1398" height="878" extended-state="6" />
-    <editor active="true" />
+    <frame x="42" y="22" width="1398" height="878" extended-state="0" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24556962" sideWeight="0.5028612" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Run Dashboard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20099255" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="top" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21215881" sideWeight="0.8769671" order="1" side_tool="true" content_ui="tabs" x="43" y="204" width="1398" height="856" />
+      <window_info id="Run Dashboard" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18858561" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="top" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3337469" sideWeight="0.8769671" order="1" side_tool="true" content_ui="tabs" x="43" y="204" width="1398" height="856" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="top" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21215881" sideWeight="0.123032905" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="top" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3337469" sideWeight="0.123032905" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15593705" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -854,53 +1153,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud/Business.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cloud/Transaction.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <marker date="1517092998000" expanded="true" signature="54:213" ph="{...}" />
-            <marker date="1517092998000" expanded="true" signature="75:210" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cloud/transactions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="80" column="29" lean-forward="true" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/cloud/User.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="35" column="11" lean-forward="false" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+        <state relative-caret-position="276">
+          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cloud/push_notifications.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
+        <state relative-caret-position="69">
           <caret line="3" column="90" lean-forward="false" selection-start-line="3" selection-start-column="90" selection-end-line="3" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="35" column="6" lean-forward="false" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud/Business.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cloud/transactions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="51" column="12" lean-forward="false" selection-start-line="51" selection-start-column="12" selection-end-line="53" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cloud/testing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="-104">
+          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
           <folding />
         </state>
       </provider>

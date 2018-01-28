@@ -3,12 +3,26 @@
 const Transaction = require('./Transaction').Transaction;
 const Business = require('./Business').Business;
 
+// Introduces random error into the test suite to ensure error handling is correct
+function randomError(response) {
+    let number = Math.floor((Math.random() * 10) + 1); // random number between 1 and 10
+    if (number === 5) {
+        // If the number was 5, trigger a random error
+        response.error({"message":"Random Error Occurred"});
+        return false;
+    } else {
+        return true;
+    }
+}
+
 // Returns a _User object id
 Parse.Cloud.define("createMockUser", function (request, response) {
 
     const handleError = function (error) {
         response.error({"message": error.message, "code": error.code});
     };
+
+    // if !randomError(response) { return }
 
     var user = new Parse.User();
     const name = Math.random().toString(36).substring(8);

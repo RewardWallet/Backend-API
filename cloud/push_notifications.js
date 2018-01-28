@@ -1,7 +1,7 @@
 'use strict';
 
 const PUSH_SUCCESS = {"message":"Notification Delivered"};
-const PUSH_ERROR = function(error) {"message": "Delivery Error" + error.message};
+const PUSH_ERROR = function(error) { return {"message": "Delivery Error" + error.message} };
 
 Parse.Cloud.define("pushToUser", function (request, response) {
 

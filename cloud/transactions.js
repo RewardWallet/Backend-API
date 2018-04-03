@@ -3,6 +3,7 @@
 const User = require('./User').User;
 const Transaction = require('./Transaction').Transaction;
 const Business = require('./Business').Business;
+const DigitalCard = require('./DigitalCard').DigitalCard;
 
 // Opens a transaction object for the business
 // Parameter Example:
@@ -79,31 +80,62 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
 
       // 3. Create a query for the transaction, MasterKey required due to ACL
       const query = new Parse.Query(Transaction);
+      query.include("business");
       query.get(transactionId, { useMasterKey: true })
         .then(function(transaction) {
 
-          // 4. Transactions cannot be overritten once closed
-          if (typeof transaction.get("user") !== 'undefined')
-            return response.error({"message":"Requested transaction is already closed"});
+            // 4. Transactions cannot be overritten once closed
+            if (typeof transaction.get("user") !== 'undefined')
+                return response.error({"message":"Requested transaction is already closed"});
 
-          // 5. Assign a user pointer to the transaction
-          transaction.set("user", user);
+            // 5. Assign a user pointer to the transaction
+            transaction.set("user", user);
 
-          // 6. Save the transaction, again using the MasterKey due to ACL
-          transaction.save(null, { useMasterKey: true })
-            .then(function() {
-              response.success("Success");
-            })
-            .catch(function(error) {
-              response.error({"message": error.message, "code": error.code});
-            })
+            // 6. Update the points
+            const query = new Parse.Query(DigitalCard);
+            query.equalTo('user', user);
+            query.equalTo('business', transaction.get("business"));
+            query.find({useMasterKey: true}).then(function (results) {
+
+                // Create an array of async functions
+                var promises = [];
+                for (var i = 0; i < results.length; i++) {
+
+                    const newPoints = transaction.get("amount") * 100;
+                    if (typeof results[i].get("points") === 'undefined') {
+                        results[i].set("points", newPoints);
+                    } else {
+                        results[i].set("points", results[i].get("points") + newPoints);
+                    }
+                    promises.push(results[i].save({useMasterKey: true})); // Ignore ACL with MasterKey
+                }
+                // Execute async functions together and wait for all to complete
+                Promise.all(promises).then(function (results) {
+
+                    // Done updating point values
+                    // 7. Save the transaction, again using the MasterKey due to ACL
+                    transaction.save(null, {useMasterKey: true})
+                        .then(function () {
+                            response.success("Success");
+                        })
+                        .catch(function (error) {
+                            response.error({"message": error.message, "code": error.code, "step": 7});
+                        })
+
+                }).catch(function (error) {
+                    response.error({"message": error.message, "code": error.code, "step": 6});
+                })
+
+            }).catch(function (error) {
+                response.error({"message": error.message, "code": error.code, "step": 6});
+            });
         })
         .catch(function(error) {
-          response.error({"message": error.message, "code": error.code});
+          response.error({"message": error.message, "code": error.code, "step": 2});
       });
     })
     .catch(function(error) {
-      response.error({"message": error.message, "code": error.code});
+      response.error({"message": error.message, "code": error.code, "step": 1});
   });
 });
 

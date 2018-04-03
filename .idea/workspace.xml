@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6154864-1528-42fc-8151-0b4ccc91b7e6" name="Default" comment="Add Some Delete Methods">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/cloud/transactions.js" afterPath="$PROJECT_DIR$/cloud/transactions.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -41,8 +40,8 @@
       <file leaf-file-name="transactions.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cloud/transactions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="103" column="69" lean-forward="false" selection-start-line="103" selection-start-column="69" selection-end-line="103" selection-end-column="69" />
+            <state relative-caret-position="439">
+              <caret line="119" column="91" lean-forward="false" selection-start-line="119" selection-start-column="91" selection-end-line="119" selection-end-column="91" />
               <folding />
             </state>
           </provider>
@@ -986,7 +985,7 @@
       <workItem from="1517090174587" duration="15896000" />
       <workItem from="1518042496893" duration="1512000" />
       <workItem from="1521486036039" duration="948000" />
-      <workItem from="1522777190235" duration="2639000" />
+      <workItem from="1522777190235" duration="3027000" />
     </task>
     <task id="LOCAL-00001" summary="Add Some Delete Methods">
       <created>1517092274840</created>
@@ -999,7 +998,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22046000" />
+    <option name="totallyTimeSpent" value="22434000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="14" y="22" width="1398" height="820" extended-state="0" />
@@ -1285,8 +1284,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cloud/transactions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="103" column="69" lean-forward="false" selection-start-line="103" selection-start-column="69" selection-end-line="103" selection-end-column="69" />
+        <state relative-caret-position="439">
+          <caret line="119" column="91" lean-forward="false" selection-start-line="119" selection-start-column="91" selection-end-line="119" selection-end-column="91" />
           <folding />
         </state>
       </provider>

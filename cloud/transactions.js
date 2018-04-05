@@ -97,11 +97,12 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
             query.equalTo('business', transaction.get("business"));
             query.find({useMasterKey: true}).then(function (results) {
 
+                const newPoints = transaction.get("amount") * 100;
+
                 // Create an array of async functions
                 var promises = [];
                 for (var i = 0; i < results.length; i++) {
 
-                    const newPoints = transaction.get("amount") * 100;
                     if (typeof results[i].get("points") === 'undefined') {
                         results[i].set("points", newPoints);
                     } else {
@@ -116,7 +117,7 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
                     // 7. Save the transaction, again using the MasterKey due to ACL
                     transaction.save(null, {useMasterKey: true})
                         .then(function () {
-                            response.success("Success");
+                            response.success({"message":"Success", "pointsAdded": newPoints);
                         })
                         .catch(function (error) {
                             response.error({"message": error.message, "code": error.code, "step": 7});

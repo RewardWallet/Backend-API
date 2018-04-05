@@ -117,7 +117,7 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
                     // 7. Save the transaction, again using the MasterKey due to ACL
                     transaction.save(null, {useMasterKey: true})
                         .then(function () {
-                            response.success({"message":"Success", "pointsAdded": newPoints);
+                              response.success({"message":"Success", "pointsAdded": newPoints});
                         })
                         .catch(function (error) {
                             response.error({"message": error.message, "code": error.code, "step": 7});

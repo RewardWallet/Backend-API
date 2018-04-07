@@ -985,7 +985,7 @@
       <workItem from="1517090174587" duration="15896000" />
       <workItem from="1518042496893" duration="1512000" />
       <workItem from="1521486036039" duration="948000" />
-      <workItem from="1522777190235" duration="3027000" />
+      <workItem from="1522777190235" duration="3602000" />
     </task>
     <task id="LOCAL-00001" summary="Add Some Delete Methods">
       <created>1517092274840</created>
@@ -998,7 +998,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22434000" />
+    <option name="totallyTimeSpent" value="23009000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="14" y="22" width="1398" height="820" extended-state="0" />

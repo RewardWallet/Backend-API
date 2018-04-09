@@ -108,7 +108,7 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
                     } else {
                         results[i].set("points", results[i].get("points") + newPoints);
                     }
-                    promises.push(results[i].save({useMasterKey: true})); // Ignore ACL with MasterKey
+                    promises.push(results[i].save());
                 }
                 // Execute async functions together and wait for all to complete
                 Promise.all(promises).then(function (results) {
@@ -120,23 +120,23 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
                               response.success({"message":"Success", "pointsAdded": newPoints});
                         })
                         .catch(function (error) {
-                            response.error({"message": error.message, "code": error.code, "step": 7});
+                            response.error({"message": error.message, "code": error.code});
                         })
 
                 }).catch(function (error) {
-                    response.error({"message": error.message, "code": error.code, "step": 6});
+                    response.error({"message": error.message, "code": error.code});
                 })
 
             }).catch(function (error) {
-                response.error({"message": error.message, "code": error.code, "step": 6});
+                response.error({"message": error.message, "code": error.code});
             });
         })
         .catch(function(error) {
-          response.error({"message": error.message, "code": error.code, "step": 2});
+          response.error({"message": error.message, "code": error.code});
       });
     })
     .catch(function(error) {
-      response.error({"message": error.message, "code": error.code, "step": 1});
+      response.error({"message": error.message, "code": error.code});
   });
 });
 

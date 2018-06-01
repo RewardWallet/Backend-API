@@ -58,18 +58,23 @@ Parse.Cloud.define("openTransaction", function(request, response) {
 // Closes a transaction object for the business and assigns it to a user
 // Parameter Example:
 // {
-// 	"transactionId": 27hHA8ia2,
-// 	"userId": "GEkx6rz7rD""
+// 	"transactionId": "27hHA8ia2",
+//  "businessId": "GEkx6rz7rD",
+// 	"userId": "GEkx6rz7rD"
 // }
 Parse.Cloud.define("closeTransaction", function(request, response) {
 
   const transactionId = request.params.transactionId;
+  const businessId = request.params.businessId;
   const userId = request.params.userId;
 
   // 1. Check for undefined parameters
   if (typeof transactionId === 'undefined')
     return response.error({"message":"Undefined Transaction ID"});
 
+  if (typeof businessId === 'undefined')
+    return response.error({"message":"Undefined Business ID"});
+                   
   if (typeof userId === 'undefined')
     return response.error({"message":"Undefined User"});
 
@@ -87,6 +92,9 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
             // 4. Transactions cannot be overritten once closed
             if (typeof transaction.get("user") !== 'undefined')
                 return response.error({"message":"Requested transaction is already closed"});
+              
+            if (businessId != transaction.get("business").objectId)
+                return response.error({"message":"Invalid Business"});
 
             // 5. Assign a user pointer to the transaction
             transaction.set("user", user);

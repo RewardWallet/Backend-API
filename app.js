@@ -7,7 +7,7 @@ require('dotenv').config();
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 var port = process.env.PORT || 1337;
 var mountPath = process.env.PARSE_MOUNT || '/parse';
-var serverURL = (process.env.SERVER_URL || 'https://localhost') + ':' + port + mountPath;
+var serverURL = (process.env.SERVER_URL || 'http://localhost') + ':' + port + mountPath;
 
 var api = new ParseServer({
   appName: process.env.APP_NAME,
@@ -18,7 +18,7 @@ var api = new ParseServer({
   readOnlyMasterKey: process.env.READ_ONLY_MASTER_KEY,
   serverURL: serverURL,
   publicServerURL: process.env.PUBLIC_SERVER_URL,
-  verbose: false,
+  verbose: true,
   // push: {
   //   android: {
   //       senderId: process.env.ANDROID_SENDER_ID || ''
@@ -60,7 +60,8 @@ var api = new ParseServer({
       // Password reset email body
       passwordResetBody: 'Hi,\n\nYou requested a password reset for %appname%.\n\nClick here to reset it:\n%link%'
     }
-  }
+  },
+  maxUploadSize: '50mb'
 });
 
 var app = express();
@@ -75,6 +76,7 @@ app.get('/status', function(req, res) {
 var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
     console.log('> Listening at ' + serverURL);
+    console.log('> Access at ' + process.env.PUBLIC_SERVER_URL);
 });
 
 // This will enable the Live Query real-time server

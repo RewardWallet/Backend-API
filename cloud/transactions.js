@@ -225,22 +225,22 @@ Parse.Cloud.define("openTransaction", function(request, response) {
     });
 
     // Send a notification to the user of the transaction
-    // Parse.Cloud.afterSave("Transaction", function(request) {
-    //
-    //   const query = new Parse.Query(Transaction);
-    //   query.include("business");
-    //   query.get(request.object.id)
-    //     .then(function(transaction) {
-    //       var userId = transaction.user
-    //       if (typeof userId !== 'undefined')
-    //       {
-    //         var amount = transaction.amount
-    //         var businessName = transaction.business.name
-    //         var message = "Thank you for your purchase of $" + amount + " at " + businessName;
-    //         Parse.Cloud.run("pushToUser", { user: userId, message: message });
-    //       }
-    //     })
-    //     .catch(function(error) {
-    //       console.error("Got an error " + error.code + " : " + error.message);
-    //     });
-    // });
+Parse.Cloud.afterSave("Transaction", function(request) {
+
+  const query = new Parse.Query(Transaction);
+  query.include("business");
+  query.get(request.object.id)
+    .then(function(transaction) {
+      var userId = transaction.user
+      if (typeof userId !== 'undefined')
+      {
+        var amount = transaction.amount
+        var businessName = transaction.business.name
+        var message = "Thank you for your purchase of $" + amount + " at " + businessName;
+        Parse.Cloud.run("pushToUser", { user: userId, message: message });
+      }
+    })
+    .catch(function(error) {
+      console.error("Got an error " + error.code + " : " + error.message);
+    });
+});

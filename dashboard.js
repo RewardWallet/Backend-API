@@ -3,8 +3,9 @@ var express = require('express');
 var ParseDashboard = require('parse-dashboard');
 require('dotenv').config();
 
-var port = 1336;
-var serverURL = 'http://localhost' + ':' + port;
+var port = process.env.PORT || 1337;
+var mountPath = process.env.PARSE_MOUNT || '/parse';
+var serverURL = (process.env.SERVER_URL || 'http://localhost') + ':' + port + mountPath;
 
 var dashboard = new ParseDashboard({
   "apps": [
@@ -21,6 +22,6 @@ var app = express();
 app.use('/api/dashboard', dashboard);
 
 var httpServer = require('http').createServer(app);
-httpServer.listen(port, function() {
-    console.log('Now running at ' + serverURL);
+httpServer.listen(1336, function() {
+    console.log('Now running at http://localhost:1336/api/dashboard');
 });

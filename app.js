@@ -18,7 +18,7 @@ var api = new ParseServer({
   readOnlyMasterKey: process.env.READ_ONLY_MASTER_KEY,
   serverURL: serverURL,
   publicServerURL: process.env.PUBLIC_SERVER_URL,
-  verbose: true,
+  verbose: false,
   // push: {
   //   android: {
   //       senderId: process.env.ANDROID_SENDER_ID || ''
@@ -80,4 +80,4 @@ httpServer.listen(port, function() {
 });
 
 // This will enable the Live Query real-time server
-ParseServer.createLiveQueryServer(httpServer);
+// ParseServer.createLiveQueryServer(httpServer);

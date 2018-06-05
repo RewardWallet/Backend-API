@@ -80,8 +80,19 @@ Parse.Cloud.define("createMockBusiness", function (request, response) {
 
     let name = "mock-" + Math.random().toString(36).substring(3);
     business.set("name", "Business " + name);
-    business.set("username", name);
+    business.set("user", null);
     business.set("email", name + "@rewardwallet.com");
+
+    const rewardModel = Math.floor((Math.random() * 3) + 1);
+    business.set("rewardModel", rewardModel);
+    if (rewardModel == 1) {
+        business.set("cashBackPercent", 5);
+    } else if (rewardModel == 2) {
+        business.set("tokensPerItem", -1);
+    } else if (rewardModel == 3) {
+        business.set("giftCardPoints", 25);
+        business.set("giftCardThreshhold", 10);
+    }
     
     business.save().then(function (business) {
         response.success({"message": "Success", "objectId": business.id});
@@ -274,7 +285,7 @@ Parse.Cloud.define("testTransaction", function (request, response) {
         handleTestError(error, response);
     };
 
-    const cleanup = !(typeof request.params.cleanup === 'undefined') ? request.params.cleanup : true;
+    const cleanup = !(typeof request.params.cleanup === 'undefined') ? request.params.cleanup : false;
 
     console.log("[Begin Transaction START]");
 
@@ -290,7 +301,7 @@ Parse.Cloud.define("testTransaction", function (request, response) {
 
             // 3. Open a transaction
             console.log("> Openning Transaction");
-            Parse.Cloud.run("openTransaction", {amount: 10.12, businessId: businessId}).then(function (result) {
+            Parse.Cloud.run("openTransaction", {amount: 10.12, itemCount: 2, businessId: businessId}).then(function (result) {
                 const transactionId = result.objectId;
 
                 // 4. Close the transaction

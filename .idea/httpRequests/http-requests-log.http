@@ -3,444 +3,11 @@ Accept: */*
 Cache-Control: no-cache
 X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
-<> 2018-01-28T013727.200.json
+{"cleanup":false}
 
-###
-
-POST http://localhost:1337/parse/functions/deleteAllSessions
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T112457.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/deleteAllTransactions
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T112351.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/deleteAllTransactions
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T112331.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/deleteAllTransactions
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T112322.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/deleteAllTransactions
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T112312.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/deleteAllTransactions
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T112307.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/deleteAllBusinesses
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T112301.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/deleteAllUsers
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T112229.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/deleteAllUsers
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T112203.400.json
-
-###
-
-POST http://localhost:1337/parse/functions/deleteAllUsers
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T112148.400.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T111901.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T111853.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T111838.400.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T111445.400.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T111131.400.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110918.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110915.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110856.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110835.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110816.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110815.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110806.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110804.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110530.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanup=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110527.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110456.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110453.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110353.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110350.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110328.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110327.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110324.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110309.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110308.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110304.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110302.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110211.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction?cleanUp=false
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T110051.200.json
+<> 2018-06-04T065318.200.json
 
 ###
 
@@ -449,18 +16,11 @@ Accept: */*
 Cache-Control: no-cache
 X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
-<> 2018-01-28T105947.200.json
+{"cleanup":false}
 
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-
-<> 2018-01-28T105907.200.json
+<> 2018-06-04T065317.200.json
 
 ###
 
@@ -469,8 +29,11 @@ Accept: */*
 Cache-Control: no-cache
 X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
-<> 2018-01-28T105906.200.json
+{"cleanup":false}
+
+<> 2018-06-04T065315-1.200.json
 
 ###
 
@@ -479,8 +42,593 @@ Accept: */*
 Cache-Control: no-cache
 X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
-<> 2018-01-28T105807.200.json
+{"cleanup":false}
+
+<> 2018-06-04T065315.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065245.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065243.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065242.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065240.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065210.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065209.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065208.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065207.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065206.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065204.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065049.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065048.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065047.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065046.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065045.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065044.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065043.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065042.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065041.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065039.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065038.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T065036.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T064944.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T064943.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T064941.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T064940.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T064939.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T064937.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T064936.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T064934.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T064523.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T064422.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T064302.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T063952.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T063951.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T063949.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T063947.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+<> 2018-06-04T063928.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
+
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"cleanup":false}
 
 ###
 

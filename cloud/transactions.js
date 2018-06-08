@@ -153,7 +153,7 @@ Parse.Cloud.define("openTransaction", function(request, response) {
                     });
                 };
 
-                var calculateNewPoints = function(rewardModel, transaction) {
+                const calculateNewPoints = function(rewardModel, transaction, item) {
 
                     var points = 0;
 
@@ -163,17 +163,18 @@ Parse.Cloud.define("openTransaction", function(request, response) {
                     // 4. Coupon
                     // 5. Inventory
                     const type = rewardModel.getType();
+                    const price = (transaction != null) ? transaction.getAmount() : item.getAmount();
 
                     if (type == 1) {
-                        points = transaction.getAmount() * rewardModel.getCashBackPercent() / 100;
+                        points = price * rewardModel.getCashBackPercent() / 100;
                     } else if (type == 2) {
                         if (rewardModel.getTokensPerItem() < 0) {
                             points = -rewardModel.getTokensPerItem(); // negative ignores item count
                         } else {
-                            points = rewardModel.getTokensPerItem() * transaction.getItemCount();
+                            points = rewardModel.getTokensPerItem();
                         }
                     } else if (type == 3) {
-                        if (transaction.getAmount() >= rewardModel.getGiftCardThreshold()) {
+                        if (price >= rewardModel.getGiftCardThreshold()) {
                             points = rewardModel.getGiftCardPoints();
                         } else {
                             throw response.error({"message":"Did not meet threshold transaction amount of " + rewardModel.getGiftCardThreshold()});
@@ -191,7 +192,7 @@ Parse.Cloud.define("openTransaction", function(request, response) {
                         transaction.setDescription("Awarded a coupon");
                         user.availableCoupons().add(rewardModel.getCoupon());
                         user.save(null, { useMasterKey: true }).then(function (user) {
-                            allocatePoints(0, user, transaction);
+                            allocatePoints(0, user, transaction, null);
                         }).catch(function (error) {
                             response.error({"message": error.message, "code": error.code});
                         })
@@ -211,7 +212,7 @@ Parse.Cloud.define("openTransaction", function(request, response) {
                         for (var i = 0; i < items.length; i++) {
                             const rewardModel = items[i].get("rewardModel");
                             if (rewardModel!= null) {
-                                points += calculateNewPoints(rewardModel, transaction);
+                                points += calculateNewPoints(rewardModel, null, items[i]);
                             } else {
                                 console.log("Inventory object " + items[i].id + " did not have an assigned RewardModel")
                             }

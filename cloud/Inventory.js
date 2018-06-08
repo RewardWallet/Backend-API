@@ -29,6 +29,14 @@ class Inventory extends Parse.Object {
         return !(typeof this.get("business") === 'undefined') ? this.get("business") : null;
     }
 
+    setPrice(value) {
+        this.set("price", value);
+    }
+
+    getPrice() {
+        return !(typeof this.get("price") === 'undefined') ? this.get("price") : null;
+    }
+
 }
 
 module.exports = {Inventory};

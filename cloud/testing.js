@@ -114,9 +114,6 @@ Parse.Cloud.define("createMockBusiness", function (request, response) {
             } else if (type == 5) {
 
                 callback(rewardModel);
-
-            } else {
-                return null;
             }
         }
 

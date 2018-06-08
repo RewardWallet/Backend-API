@@ -8,6 +8,11 @@ class User extends Parse.User {
         // All other initialization
     }
 
+    availableCoupons() {
+        return !(typeof this.relation("availableCoupons") === 'undefined') ? this.relation("availableCoupons") : null;
+    }
+
 }
 
+Parse.Object.registerSubclass('_User', User);
 module.exports = {User};

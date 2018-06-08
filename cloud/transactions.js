@@ -5,6 +5,8 @@ const Transaction = require('./Transaction').Transaction;
 const Inventory = require('./Inventory').Inventory;
 const Business = require('./Business').Business;
 const DigitalCard = require('./DigitalCard').DigitalCard;
+const RewardModel = require('./RewardModel').RewardModel;
+const Coupon = require('./Coupon').Coupon;
 
 // Opens a transaction object for the business
 // Parameter Example:
@@ -38,35 +40,27 @@ Parse.Cloud.define("openTransaction", function(request, response) {
     // 2. Get the business object to assign as a pointer
     const query = new Parse.Query(Business);
     query.get(businessId)
-    .then(function(business) {
+        .then(function(business) {
 
-      // 3. Create a new Transaction object and assign the amount and business owner
-      var transaction = new Transaction();
-      transaction.set("amount", amount);
-      transaction.set("business", business);
-      transaction.set("itemCount", itemCount);
-      transaction.set("items", inventoryItems);
+        // 3. Create a new Transaction object and assign the amount and business owner
+        const transaction = new Transaction();
+        transaction.setAmount(amount);
+        transaction.setBusiness(business);
+        transaction.setItems(inventoryItems);
+        transaction.setItemCount(itemCount);
 
-      // 4. Only read access to the transaction
-      var acl = new Parse.ACL();
-      acl.setPublicReadAccess(true);
-      transaction.setACL(acl);
-
-      // 5. Save the transaction, MasterKey is not required for initial save
-      transaction.save(null, {
-        success: function(transaction) {
-          response.success({"message": "Success", "objectId": transaction.id });
-        },
-        error: function(transaction, error) {
-          response.error({"message": error.message, "code": error.code});
-        }
-      });
+        // 4. Save the transaction, MasterKey is not required for initial save
+        transaction.save(null, { useMasterKey: true }).then(function (object) {
+            response.success({"message": "Success", "objectId": object.id });
+        }).catch(function (error) {
+            response.error({"message": error.message, "code": error.code});
+        });
 
     })
     .catch(function(error) {
       response.error({"message": error.message, "code": error.code});
     });
-    });
+});
 
     // Closes a transaction object for the business and assigns it to a user
     // Parameter Example:
@@ -88,103 +82,54 @@ Parse.Cloud.define("openTransaction", function(request, response) {
 
     // 2. Get the user object to assign as a pointer
     const query = new Parse.Query(User);
-    query.get(userId)
-    .then(function(user) {
+    query.get(userId, { useMasterKey: true }).then(function(user) {
 
       // 3. Create a query for the transaction, MasterKey required due to ACL
       const query = new Parse.Query(Transaction);
       query.include("business");
-      query.get(transactionId, { useMasterKey: true })
-        .then(function(transaction) {
+      query.get(transactionId, { useMasterKey: true }).then(function(transaction) {
 
-            // 4. Transactions cannot be overritten once closed
-            if (typeof transaction.get("user") !== 'undefined')
-                return response.error({"message":"That transaction has already been closed"});
+        // 4. Transactions cannot be overritten once closed
+        if (transaction.getUser() != null)
+            return response.error({"message":"That transaction has already been closed"});
 
-            // 5. Assign a user pointer to the transaction
-            transaction.set("user", user);
+        // 5. Assign a user pointer to the transaction
+        transaction.setUser(user);
 
-            const businessId = transaction.get("business").id;
+        const businessId = transaction.getBusiness().id;
 
-            // 6. Get the business distribution model
-            const query = new Parse.Query(Business);
-            query.get(businessId, { useMasterKey: true })
-                .then(function(business) {
+        // 6. Get the business distribution model
+        const query = new Parse.Query(Business);
+        query.include("rewardModel");
+        query.include("rewardModel.coupon");
+        query.get(businessId, { useMasterKey: true })
+            .then(function(business) {
 
-                    const rewardModel = business.get("rewardModel");
-                    console.log(rewardModel);
-                    if (typeof rewardModel === 'undefined')
-                        return response.error({"message":"Business reward distribution model not set"});
+                const rewardModel = business.get("rewardModel");
 
-                    var newPoints = 0;
+                if (rewardModel == null)
+                    return response.error({"message":"Business reward distribution model not set"});
 
-                    const transactionAmount = !(typeof transaction.get("amount") === 'undefined') ? transaction.get("amount") : 0;
-                    const transactionItemCount = !(typeof transaction.get("itemCount") === 'undefined') ? transaction.get("itemCount") : 0;
-                    const transactionItems = !(typeof transaction.get("items") === 'undefined') ? transaction.get("items") : [];
-
-                    // 1. Cash Back %
-                    // 2. Token
-                    // 3. Gift Card
-                    // 4. Coupon
-                    // 5. Inventory
-                    if (rewardModel == 1) {
-                        const percent = business.get("cashBackPercent");
-                        if (typeof percent === 'undefined')
-                            return response.error({"message":"'cashBackPercent' undefined"});
-                        newPoints = transactionAmount * percent / 100;
-                    } else if (rewardModel == 2) {
-                        const tokensPerItem = business.get("tokensPerItem");
-                        if (typeof tokensPerItem === 'undefined')
-                            return response.error({"message":"'tokensPerItem' undefined"});
-                        if (tokensPerItem == -1) {
-                            newPoints = 1; // -1 is code for 1 point regardless of item count
-                        } else {
-                            newPoints = tokensPerItem * transactionItemCount;
-                        }
-                    } else if (rewardModel == 3) {
-                        const giftCardPoints = business.get("giftCardPoints");
-                        if (typeof giftCardPoints === 'undefined')
-                            return response.error({"message":"'giftCardPoints' undefined"});
-                        const giftCardThreshhold = business.get("giftCardThreshhold");
-                        if (typeof giftCardPoints === 'undefined')
-                            return response.error({"message":"'giftCardThreshhold' undefined"});
-                        if (transactionAmount >= giftCardThreshhold) {
-                            newPoints = giftCardPoints;
-                        } else {
-                            newPoints = 0; // Did not meet threshhold
-                        }
-                    } else if (rewardModel == 4) {
-
-                    } else if (rewardModel == 5) {
-
-                    }
-
-                    newPoints = Math.round(newPoints * 100) / 100;
-
+                const allocatePoints = function(points, user, transaction) {
                     // 7. Update the points
                     const query = new Parse.Query(DigitalCard);
                     query.equalTo('user', user);
-                    query.equalTo('business', transaction.get("business"));
-                    query.find({useMasterKey: true}).then(function (results) {
+                    query.equalTo('business', transaction.getBusiness());
+                    query.find({ useMasterKey: true }).then(function (results) {
 
                         // Create an array of async functions
                         var promises = [];
 
                         if (results.length == 0) {
-                            let digitalCard = new DigitalCard();
-                            digitalCard.set('user', user);
-                            digitalCard.set('business', transaction.get("business"));
-                            digitalCard.set('points', newPoints);
-                            promises.push(digitalCard.save())
+                            const digitalCard = new DigitalCard();
+                            digitalCard.setUser(user);
+                            digitalCard.setBusiness(transaction.getBusiness());
+                            digitalCard.addPoints(points);
+                            promises.push(digitalCard.save(null, { useMasterKey: true }))
                         } else {
                             for (var i = 0; i < results.length; i++) {
-
-                                if (typeof results[i].get("points") === 'undefined') {
-                                    results[i].set("points", newPoints);
-                                } else {
-                                    results[i].set("points", results[i].get("points") + newPoints);
-                                }
-                                promises.push(results[i].save());
+                                results[i].addPoints(points);
+                                promises.push(results[i].save(null, { useMasterKey: true }));
                             }
                         }
 
@@ -193,54 +138,119 @@ Parse.Cloud.define("openTransaction", function(request, response) {
 
                             // Done updating point values
                             // 8. Save the transaction, again using the MasterKey due to ACL
-                            transaction.save(null, {useMasterKey: true})
+                            transaction.save(null, { useMasterKey: true } )
                                 .then(function () {
-                                    response.success({"message":"Success", "pointsAdded": newPoints});
+                                    response.success({"message":"Success", "pointsAdded": points});
                                 })
                                 .catch(function (error) {
                                     response.error({"message": error.message, "code": error.code});
                                 })
-
                         }).catch(function (error) {
                             response.error({"message": error.message, "code": error.code});
                         })
+                    }).catch(function (error) {
+                        response.error({"message": error.message, "code": error.code});
+                    });
+                };
+
+                var calculateNewPoints = function(rewardModel, transaction) {
+
+                    var points = 0;
+
+                    // 1. Cash Back %
+                    // 2. Token
+                    // 3. Gift Card
+                    // 4. Coupon
+                    // 5. Inventory
+                    const type = rewardModel.getType();
+
+                    if (type == 1) {
+                        points = transaction.getAmount() * rewardModel.getCashBackPercent() / 100;
+                    } else if (type == 2) {
+                        if (rewardModel.getTokensPerItem() < 0) {
+                            points = -rewardModel.getTokensPerItem(); // negative ignores item count
+                        } else {
+                            points = rewardModel.getTokensPerItem() * transaction.getItemCount();
+                        }
+                    } else if (type == 3) {
+                        if (transaction.getAmount() >= rewardModel.getGiftCardThreshold()) {
+                            points = rewardModel.getGiftCardPoints();
+                        } else {
+                            throw response.error({"message":"Did not meet threshold transaction amount of " + rewardModel.getGiftCardThreshold()});
+                        }
+                    }
+                    return Math.round(points * 100) / 100; // Round to two decimals
+                };
+
+                if ((rewardModel.getType() == -1) || (rewardModel.getType() > 5)) {
+                    throw response.error({"message":"Unknown reward distribution model"});
+
+                } else if (rewardModel.getType() == 4) {
+
+                    if (rewardModel.getCoupon() != null) {
+                        transaction.setDescription("Awarded a coupon");
+                        user.availableCoupons().add(rewardModel.getCoupon());
+                        user.save(null, { useMasterKey: true }).then(function (user) {
+                            allocatePoints(0, user, transaction);
+                        }).catch(function (error) {
+                            response.error({"message": error.message, "code": error.code});
+                        })
+                    } else {
+                        return response.error({"message":"RewardModel does not contain a coupon"});
+                    }
+                } else if (rewardModel.getType() == 5) {
+
+                    // Query for inventory objects
+                    const query = new Parse.Query(Inventory);
+                    query.include("rewardModel");
+                    query.include("rewardModel.coupon");
+                    query.containedIn("objectId", transaction.getItems());
+                    query.find({ useMasterKey: true }).then(function (items) {
+
+                        var points = 0;
+                        for (var i = 0; i < items.length; i++) {
+                            const rewardModel = items[i].get("rewardModel");
+                            if (rewardModel!= null) {
+                                points += calculateNewPoints(rewardModel, transaction);
+                            } else {
+                                console.log("Inventory object " + items[i].id + " did not have an assigned RewardModel")
+                            }
+                        }
+                        transaction.setDescription("Awarded a " + points + " reward points");
+                        allocatePoints(points, user, transaction);
 
                     }).catch(function (error) {
                         response.error({"message": error.message, "code": error.code});
                     });
+                } else {
+                    const points = calculateNewPoints(rewardModel, transaction)
+                    transaction.setDescription("Awarded a " + points + " reward points");
+                    allocatePoints(points, user, transaction);
+                }
 
-
-                }).catch(function (error) {
+            }).catch(function (error) {
                 response.error({"message": error.message, "code": error.code});
             })
-
-        })
-        .catch(function(error) {
-          response.error({"message": error.message, "code": error.code});
+        }).catch(function(error) {
+            response.error({"message": error.message, "code": error.code});
       });
     })
     .catch(function(error) {
       response.error({"message": error.message, "code": error.code});
     });
-    });
+});
 
-    // Send a notification to the user of the transaction
+// Send a notification to the user of the transaction
 Parse.Cloud.afterSave("Transaction", function(request) {
 
-  const query = new Parse.Query(Transaction);
-  query.include("business");
-  query.get(request.object.id)
-    .then(function(transaction) {
-      var userId = transaction.user
-      if (typeof userId !== 'undefined')
-      {
-        var amount = transaction.amount
-        var businessName = transaction.business.name
-        var message = "Thank you for your purchase of $" + amount + " at " + businessName;
-        Parse.Cloud.run("pushToUser", { user: userId, message: message });
-      }
-    })
-    .catch(function(error) {
-      console.error("Got an error " + error.code + " : " + error.message);
-    });
+    // const query = new Parse.Query(Transaction);
+    // query.include("business");
+    // query.get(request.object.id,  { useMasterKey: true }).then(function(transaction) {
+    //     if (transaction.getUser() != null) {
+    //         const message = "Thank you for your purchase of $" + transaction.getAmount() + " at " + transaction.getBusiness().getName();
+    //         Parse.Cloud.run("pushToUser", { user: transaction.getUser().id, message: message });
+    //     }
+    // }).catch(function(error) {
+    //     console.error("Got an error " + error.code + " : " + error.message);
+    // });
 });

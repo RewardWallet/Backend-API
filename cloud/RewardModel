@@ -1,0 +1,72 @@
+'use strict';
+
+class RewardModel extends Parse.Object {
+
+    constructor() {
+        // Pass the ClassName to the Parse.Object constructor
+        super('RewardModel');
+        // All other initialization
+
+        // Only read access to the transaction
+        // var acl = new Parse.ACL();
+        // acl.setPublicReadAccess(true);
+        // this.setACL(acl);
+    }
+
+    // 1. Cash Back %
+    // 2. Token
+    // 3. Gift Card
+    // 4. Coupon
+    // 5. Inventory
+    setType(value) {
+        this.set("type", value);
+    }
+
+    getType() {
+        return !(typeof this.get("type") === 'undefined') ? this.get("type") : -1;
+    }
+
+    setCashBackPercent(value) {
+        this.set("cashBackPercent", value);
+    }
+
+    getCashBackPercent() {
+        return !(typeof this.get("cashBackPercent") === 'undefined') ? this.get("cashBackPercent") : 0;
+    }
+
+    setTokensPerItem(value) {
+        this.set("tokensPerItem", value);
+    }
+
+    getTokensPerItem() {
+        return !(typeof this.get("tokensPerItem") === 'undefined') ? this.get("tokensPerItem") : 0;
+    }
+
+    setGiftCardPoints(value) {
+        this.set("giftCardPoints", value);
+    }
+
+    getGiftCardPoints() {
+        return !(typeof this.get("giftCardPoints") === 'undefined') ? this.get("giftCardPoints") : 0;
+    }
+
+    setGiftCardThreshold(value) {
+        this.set("giftCardThreshold", value);
+    }
+
+    getGiftCardThreshold() {
+        return !(typeof this.get("giftCardThreshold") === 'undefined') ? this.get("giftCardThreshold") : 0;
+    }
+
+    setCoupon(value) {
+        this.set("coupon", value);
+    }
+
+    getCoupon() {
+        return !(typeof this.get("coupon") === 'undefined') ? this.get("coupon") : null;
+    }
+
+}
+
+Parse.Object.registerSubclass('RewardModel', RewardModel);
+module.exports = {RewardModel};

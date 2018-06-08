@@ -2,7 +2,11 @@
 
 const User = require('./User').User;
 const Transaction = require('./Transaction').Transaction;
+const Inventory = require('./Inventory').Inventory;
 const Business = require('./Business').Business;
+const DigitalCard = require('./DigitalCard').DigitalCard;
+const RewardModel = require('./RewardModel').RewardModel;
+const Coupon = require('./Coupon').Coupon;
 
 // Introduces random error into the test suite to ensure error handling is correct
 function randomError(response) {
@@ -76,26 +80,95 @@ Parse.Cloud.define("createMockBusiness", function (request, response) {
 
     if (!randomError(response)) { return } // Exit on random error
 
-    var business = new Business();
+    const business = new Business();
 
     let name = "mock-" + Math.random().toString(36).substring(3);
     business.set("name", "Business " + name);
     business.set("user", null);
     business.set("email", name + "@rewardwallet.com");
 
-    const rewardModel = Math.floor((Math.random() * 3) + 1);
-    business.set("rewardModel", rewardModel);
-    if (rewardModel == 1) {
-        business.set("cashBackPercent", 5);
-    } else if (rewardModel == 2) {
-        business.set("tokensPerItem", -1);
-    } else if (rewardModel == 3) {
-        business.set("giftCardPoints", 25);
-        business.set("giftCardThreshhold", 10);
-    }
-    
     business.save().then(function (business) {
-        response.success({"message": "Success", "objectId": business.id});
+
+        const randomRewardModel = function(min, max, callback) {
+            const rewardModel = new RewardModel();
+            const type = (min == max) ? min : Math.floor((Math.random() * max) + min);
+            rewardModel.setType(type);
+
+            if (type == 1) {
+                rewardModel.setCashBackPercent(Math.floor((Math.random() * 100) + 10)/10);
+                callback(rewardModel);
+            } else if (type == 2) {
+                rewardModel.setTokensPerItem(Math.floor((Math.random() * 100) - 100));
+                callback(rewardModel);
+            } else if (type == 3) {
+                rewardModel.setGiftCardPoints(Math.floor((Math.random() * 10000) + 2500)/100);
+                rewardModel.setGiftCardThreshold(Math.floor((Math.random() * 50) + 10))
+                callback(rewardModel);
+            } else if (type == 4) {
+
+                const coupon = new Coupon();
+                coupon.save().then(function (coupon) {
+                    rewardModel.setCoupon(coupon);
+                    callback(rewardModel);
+                }).catch(handleError)
+            } else if (type == 5) {
+
+                callback(rewardModel);
+
+            } else {
+                return null;
+            }
+        }
+
+        const saveRewardModelAndSetToBusiness = function(rewardModel, business) {
+            rewardModel.save(null, { useMasterKey: true } ).then(function (rewardModel) {
+                business.setRewardModel(rewardModel);
+                business.save().then(function (business) {
+
+                    if (rewardModel.getType() == 5) {
+
+                        const count = Math.floor((Math.random() * 5) + 1)
+                        console.log("> Creating " + count + " inventory items");
+                        var promises = [];
+                        for (var i = 0; i < count; i++) {
+                            const item = new Inventory();
+                            item.setBusiness(business);
+                            promises.push(item.save());
+                        }
+                        // Execute async functions together and wait for all to complete
+                        Promise.all(promises).then(function (items) {
+                            var promises = [];
+                            for (var i = 0; i < count; i++) {
+                                randomRewardModel(1, 4, function (rewardModel) {
+                                    promises.push(rewardModel.save(null, { useMasterKey: true } ))
+                                })
+                            }
+                            Promise.all(promises).then(function (rewardModels) {
+                                var promises = [];
+                                for (var i = 0; i < items.length; i++) {
+                                    items[i].setRewardModel(rewardModels[i])
+                                    promises.push(items[i].save());
+                                }
+                                Promise.all(promises).then(function (items) {
+                                    const itemIds = items.map(x => x.id);
+                                    response.success({"message": "Success", "objectId": business.id, "itemIds": itemIds});
+                                });
+                            });
+                        })
+
+                    } else {
+                        response.success({"message": "Success", "objectId": business.id});
+                    }
+
+                }).catch(handleError);
+            }).catch(handleError);
+        };
+
+        // Generate a RewardModel for the business
+        randomRewardModel(1, 5, function (rewardModel) {
+            saveRewardModelAndSetToBusiness(rewardModel, business);
+        });
+
     }).catch(handleError);
 });
 
@@ -298,10 +371,14 @@ Parse.Cloud.define("testTransaction", function (request, response) {
         console.log("> Creating Business");
         Parse.Cloud.run("createMockBusiness", {}).then(function (result) {
             const businessId = result.objectId;
+            const itemIds = result.itemIds;
 
             // 3. Open a transaction
             console.log("> Openning Transaction");
-            Parse.Cloud.run("openTransaction", {amount: 10.12, itemCount: 2, businessId: businessId}).then(function (result) {
+            const amount = Math.floor((Math.random() * 5000) + 100)/100;
+            const count = !(typeof itemIds === 'undefined') ? itemIds.length : Math.floor((Math.random() * 5) + 1);
+            console.log("Testing with transaction amount: " + amount + ", count: " + count);
+            Parse.Cloud.run("openTransaction", {amount: amount, itemCount: count, businessId: businessId, inventoryItems: itemIds}).then(function (result) {
                 const transactionId = result.objectId;
 
                 // 4. Close the transaction
@@ -312,7 +389,7 @@ Parse.Cloud.define("testTransaction", function (request, response) {
                     console.log('\x1b[32m%s\x1b[0m', "[Transaction Test COMPLETED]");
                     response.success({"message":"Success"});
 
-                    if (cleanup === true) {
+                    if (cleanup) {
                         console.log("> Cleaning Up");
 
                         Parse.Cloud.run("deleteUser", {userId: userId}).then(function (result) {

@@ -124,12 +124,14 @@ Parse.Cloud.define("createMockBusiness", function (request, response) {
 
                     if (rewardModel.getType() == 5) {
 
-                        const count = Math.floor((Math.random() * 5) + 1)
+                        const count = Math.floor((Math.random() * 6) + 2)
                         console.log("> Creating " + count + " inventory items");
                         var promises = [];
                         for (var i = 0; i < count; i++) {
                             const item = new Inventory();
                             item.setBusiness(business);
+                            const price = Math.floor((Math.random() * 5000) + 100)/100;
+                            item.setPrice(price);
                             promises.push(item.save());
                         }
                         // Execute async functions together and wait for all to complete
@@ -142,12 +144,14 @@ Parse.Cloud.define("createMockBusiness", function (request, response) {
                             }
                             Promise.all(promises).then(function (rewardModels) {
                                 var promises = [];
+                                var itemIds = [];
                                 for (var i = 0; i < items.length; i++) {
-                                    items[i].setRewardModel(rewardModels[i])
-                                    promises.push(items[i].save());
+                                    items[i].setRewardModel(rewardModels[i]);
+                                    itemIds.push(items[i].id);
+                                    promises.push(items[i].save(null, { useMasterKey: true }));
                                 }
                                 Promise.all(promises).then(function (items) {
-                                    const itemIds = items.map(x => x.id);
+                                    console.log(itemIds);
                                     response.success({"message": "Success", "objectId": business.id, "itemIds": itemIds});
                                 });
                             });
@@ -355,7 +359,7 @@ Parse.Cloud.define("testTransaction", function (request, response) {
         handleTestError(error, response);
     };
 
-    const cleanup = !(typeof request.params.cleanup === 'undefined') ? request.params.cleanup : false;
+    const cleanup = !(typeof request.params.cleanup === 'undefined') ? request.params.cleanup : true;
 
     console.log("[Begin Transaction START]");
 
@@ -374,39 +378,58 @@ Parse.Cloud.define("testTransaction", function (request, response) {
             console.log("> Openning Transaction");
             const amount = Math.floor((Math.random() * 5000) + 100)/100;
             const count = !(typeof itemIds === 'undefined') ? itemIds.length : Math.floor((Math.random() * 5) + 1);
-            console.log("Testing with transaction amount: " + amount + ", count: " + count);
-            Parse.Cloud.run("openTransaction", {amount: amount, itemCount: count, businessId: businessId, inventoryItems: itemIds}).then(function (result) {
+            console.log("Transaction Amount: " + amount + ", count: " + count);
+            Parse.Cloud.run("openTransaction", {amount: amount, itemCount: count, businessId: businessId, items: itemIds}).then(function (result) {
+
                 const transactionId = result.objectId;
 
                 // 4. Close the transaction
                 console.log("> Closing Transaction");
                 Parse.Cloud.run("closeTransaction", {transactionId: transactionId, userId: userId}).then(function (result) {
 
-                    // 5. Delete the user and business
-                    console.log('\x1b[32m%s\x1b[0m', "[Transaction Test COMPLETED]");
-                    response.success({"message":"Success"});
+                    const pointsAdded = result.pointsAdded;
 
-                    if (cleanup) {
-                        console.log("> Cleaning Up");
+                    console.log("> Openning Redeem Transaction");
+                    console.log("Redeeming:  " + pointsAdded);
+                    Parse.Cloud.run("openRedeemTransaction", {points: pointsAdded, businessId: businessId}).then(function (result) {
 
-                        Parse.Cloud.run("deleteUser", {userId: userId}).then(function (result) {
-                            console.log('\x1b[33m%s\x1b[0m', "> User " + userId + " deleted");
-                        }).catch(function (error) {
-                            console.log('\x1b[31m%s\x1b[0m', "[USER DELETE FAILED] " + error.message + " CODE: " + error.code);
+                        const redeemTransactionId = result.objectId;
+
+                        console.log("> Closing Redeem Transaction");
+                        Parse.Cloud.run("closeRedeemTransaction", {transactionId: redeemTransactionId, userId: userId}).then(function (result) {
+
+                            // 5. Delete the user and business
+                            console.log('\x1b[32m%s\x1b[0m', "[Transaction Test COMPLETED]");
+                            response.success({"message":"Success"});
+
+                            if (cleanup === true) {
+                                console.log("> Cleaning Up");
+
+                                Parse.Cloud.run("deleteUser", {userId: userId}).then(function (result) {
+                                    console.log('\x1b[33m%s\x1b[0m', "> User " + userId + " deleted");
+                                }).catch(function (error) {
+                                    console.log('\x1b[31m%s\x1b[0m', "[USER DELETE FAILED] " + error.message + " CODE: " + error.code);
+                                });
+                                Parse.Cloud.run("deleteBusiness", {businessId: businessId}).then(function (result) {
+                                    console.log('\x1b[33m%s\x1b[0m', "> Business " + businessId + " deleted");
+                                }).catch(function (error) {
+                                    console.log('\x1b[31m%s\x1b[0m', "[BUSINESS DELETE FAILED] " + error.message + " CODE: " + error.code);
+                                });
+                                Parse.Cloud.run("deleteTransaction", {transactionId: transactionId}).then(function (result) {
+                                    console.log('\x1b[33m%s\x1b[0m', "> Transaction " + transactionId + " deleted");
+                                }).catch(function (error) {
+                                    console.log('\x1b[31m%s\x1b[0m', "[TRANSACTION DELETE FAILED] " + error.message + " CODE: " + error.code);
+                                });
+                                Parse.Cloud.run("deleteTransaction", {transactionId: redeemTransactionId}).then(function (result) {
+                                    console.log('\x1b[33m%s\x1b[0m', "> Transaction " + redeemTransactionId + " deleted");
+                                }).catch(function (error) {
+                                    console.log('\x1b[31m%s\x1b[0m', "[TRANSACTION DELETE FAILED] " + error.message + " CODE: " + error.code);
+                                });
+                            } else {
+                                console.log("> Ignoring Clean Up");
+                            }
                         });
-                        Parse.Cloud.run("deleteBusiness", {businessId: businessId}).then(function (result) {
-                            console.log('\x1b[33m%s\x1b[0m', "> Business " + businessId + " deleted");
-                        }).catch(function (error) {
-                            console.log('\x1b[31m%s\x1b[0m', "[BUSINESS DELETE FAILED] " + error.message + " CODE: " + error.code);
-                        });
-                        Parse.Cloud.run("deleteTransaction", {transactionId: transactionId}).then(function (result) {
-                            console.log('\x1b[33m%s\x1b[0m', "> Transaction " + transactionId + " deleted");
-                        }).catch(function (error) {
-                            console.log('\x1b[31m%s\x1b[0m', "[TRANSACTION DELETE FAILED] " + error.message + " CODE: " + error.code);
-                        });
-                    } else {
-                        console.log("> Ignoring Clean Up");
-                    }
+                    });
 
                 }).catch(handleError);
             }).catch(handleError);

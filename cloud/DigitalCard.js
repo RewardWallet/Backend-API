@@ -1,12 +1,13 @@
 'use strict';
 
+const Coin = require('./Coin').Coin;
+
 class DigitalCard extends Parse.Object {
 
     constructor() {
         // Pass the ClassName to the Parse.Object constructor
         super('DigitalCard');
         // All other initialization
-        this.set('points', 0);
 
         // Only read access to the transaction
         var acl = new Parse.ACL();
@@ -38,12 +39,17 @@ class DigitalCard extends Parse.Object {
         this.set("points", this.getPoints() - value);
     }
 
-
     getPoints() {
         return !(typeof this.get("points") === 'undefined') ? this.get("points") : 0;
     }
 
 }
+
+// Parse.Cloud.beforeFind('DigitalCard', function(req) {
+//
+//     // const query = req.query; // the Parse.Query
+//     const query = new Parse.Query(Coin)
+// });
 
 Parse.Object.registerSubclass('DigitalCard', DigitalCard);
 module.exports = {DigitalCard};

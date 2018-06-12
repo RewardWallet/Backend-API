@@ -5,9 +5,14 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
 
-<> 2018-06-08T022526.200.json
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
 ###
 
@@ -18,9 +23,14 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
 
-<> 2018-06-08T022524.200.json
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
 ###
 
@@ -31,9 +41,16 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
 
-<> 2018-06-08T022520.200.json
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+<> 2018-06-12T120240.200.json
 
 ###
 
@@ -44,9 +61,16 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
 
-<> 2018-06-08T022519.200.json
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+<> 2018-06-12T120234.200.json
 
 ###
 
@@ -57,9 +81,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
-
-<> 2018-06-08T022512.200.json
+<> 2018-06-12T120218.200.json
 
 ###
 
@@ -70,9 +92,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
-
-<> 2018-06-08T022511.200.json
+<> 2018-06-12T120206.200.json
 
 ###
 
@@ -83,9 +103,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
-
-<> 2018-06-08T022507.200.json
+<> 2018-06-12T120204.200.json
 
 ###
 
@@ -96,7 +114,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+<> 2018-06-12T120202.200.json
 
 ###
 
@@ -107,7 +125,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+<> 2018-06-12T120100.200.json
 
 ###
 
@@ -118,7 +136,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+<> 2018-06-12T120053.200.json
 
 ###
 
@@ -129,7 +147,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+<> 2018-06-12T120046.200.json
 
 ###
 
@@ -140,7 +158,14 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
 ###
 
@@ -151,9 +176,14 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
 
-<> 2018-06-08T022101.200.json
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
 ###
 
@@ -164,9 +194,16 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
 
-<> 2018-06-08T021839.200.json
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+<> 2018-06-12T115927.200.json
 
 ###
 
@@ -177,9 +214,14 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
 
-<> 2018-06-08T021832.200.json
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
 ###
 
@@ -190,7 +232,16 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+<> 2018-06-12T115828.200.json
 
 ###
 
@@ -201,7 +252,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+<> 2018-06-12T115823.200.json
 
 ###
 
@@ -212,7 +263,14 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
+
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
 ###
 
@@ -223,9 +281,14 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
 
-<> 2018-06-08T021756.200.json
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
 ###
 
@@ -236,7 +299,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+<> 2018-06-12T115623.200.json
 
 ###
 
@@ -247,7 +310,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+<> 2018-06-12T115619.200.json
 
 ###
 
@@ -258,7 +321,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+<> 2018-06-12T115613.200.json
 
 ###
 
@@ -269,9 +332,14 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
 
-<> 2018-06-08T021720.200.json
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
 ###
 
@@ -282,9 +350,14 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
 
-<> 2018-06-08T021717.200.json
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
 ###
 
@@ -295,9 +368,14 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
 
-<> 2018-06-08T021716.200.json
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
 ###
 
@@ -308,9 +386,14 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+###
 
-<> 2018-06-08T021712.200.json
+POST http://localhost:1337/parse/functions/testTransaction
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
 
 ###
 
@@ -321,9 +404,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
-
-<> 2018-06-08T021711.200.json
+<> 2018-06-12T115517.200.json
 
 ###
 
@@ -334,7 +415,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+<> 2018-06-12T115514.200.json
 
 ###
 
@@ -345,9 +426,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
-
-<> 2018-06-08T021702.400.json
+<> 2018-06-12T115513.200.json
 
 ###
 
@@ -358,9 +437,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
-
-<> 2018-06-08T021700.400.json
+<> 2018-06-12T115511.200.json
 
 ###
 
@@ -371,9 +448,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
-
-<> 2018-06-08T021617.400.json
+<> 2018-06-12T115509.200.json
 
 ###
 
@@ -384,9 +459,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
-
-<> 2018-06-08T021615.200.json
+<> 2018-06-12T115506.200.json
 
 ###
 
@@ -397,9 +470,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
-
-<> 2018-06-08T021613.400.json
+<> 2018-06-12T115504.200.json
 
 ###
 
@@ -410,7 +481,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
+<> 2018-06-12T115501.200.json
 
 ###
 
@@ -421,200 +492,7 @@ X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
 
-{"cleanup":false}
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-<> 2018-06-08T021527.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-<> 2018-06-08T021525.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-<> 2018-06-08T021524.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-<> 2018-06-08T021522.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-<> 2018-06-08T021521.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-<> 2018-06-08T021520.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-<> 2018-06-08T021008.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-<> 2018-06-08T021007.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-<> 2018-06-08T021006.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-<> 2018-06-08T021005.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-<> 2018-06-08T021003.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-<> 2018-06-08T021002.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-<> 2018-06-08T021001.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-{"cleanup":false}
-
-<> 2018-06-08T021000.200.json
+<> 2018-06-12T115458.200.json
 
 ###
 

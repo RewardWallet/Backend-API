@@ -13,6 +13,22 @@ class Transaction extends Parse.Object {
         this.setACL(acl);
     }
 
+    setIsRedeeming(value) {
+        this.set("isRedeeming", value);
+    }
+
+    isRedeeming() {
+        return !(typeof this.get("isRedeeming") === 'undefined') ? this.get("isRedeeming") : false;
+    }
+
+    setRewardPointsRequired(value) {
+        this.set("pointsRequired", value);
+    }
+
+    getRewardPointsRequired() {
+        return !(typeof this.get("pointsRequired") === 'undefined') ? this.get("pointsRequired") : 0;
+    }
+
     setDescription(value) {
         this.set("description", value);
     }

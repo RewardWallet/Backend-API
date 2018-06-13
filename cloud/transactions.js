@@ -276,7 +276,7 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
                                     console.log("Inventory object " + items[i].id + " did not have an assigned RewardModel")
                                 }
                             }
-                            transaction.setDescription("Awarded a " + points + " reward points");
+                            transaction.setDescription("Awarded " + points + " reward points");
                             allocatePoints(points, user, transaction);
 
                         }).catch(function (error) {

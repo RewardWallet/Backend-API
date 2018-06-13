@@ -19,11 +19,11 @@ class RewardModel extends Parse.Object {
     // 4. Coupon
     // 5. Inventory
     setType(value) {
-        this.set("type", value);
+        this.set("modelType", value);
     }
 
     getType() {
-        return !(typeof this.get("type") === 'undefined') ? this.get("type") : -1;
+        return !(typeof this.get("modelType") === 'undefined') ? this.get("modelType") : -1;
     }
 
     setCashBackPercent(value) {

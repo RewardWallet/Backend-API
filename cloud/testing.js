@@ -150,26 +150,25 @@ Parse.Cloud.define("createMockBusiness", function (request, response) {
                             for (var i = 0; i < count; i++) {
                                 randomRewardModel(1, 4, function (rewardModel) {
                                     promises.push(rewardModel.save(null, { useMasterKey: true } ))
+
+                                    if (promises.length == count) {
+                                        Promise.all(promises).then(function (rewardModels) {
+                                            var promises = [];
+                                            var itemIds = [];
+                                            for (var i = 0; i < items.length; i++) {
+                                                items[i].setRewardModel(rewardModels[i]);
+                                                itemIds.push(items[i].id);
+                                                promises.push(items[i].save(null, { useMasterKey: true }));
+                                            }
+                                            Promise.all(promises).then(function (items) {
+                                                console.log(itemIds);
+                                                response.success({"message": "Success", "objectId": business.id, "itemIds": itemIds});
+                                            });
+                                        });
+                                    }
                                 })
                             }
 
-                            while (promises.length < count) {
-                                console.log("...waiting to generate inventory items");
-                                sleep(1);
-                            }
-                            Promise.all(promises).then(function (rewardModels) {
-                                var promises = [];
-                                var itemIds = [];
-                                for (var i = 0; i < items.length; i++) {
-                                    items[i].setRewardModel(rewardModels[i]);
-                                    itemIds.push(items[i].id);
-                                    promises.push(items[i].save(null, { useMasterKey: true }));
-                                }
-                                Promise.all(promises).then(function (items) {
-                                    console.log(itemIds);
-                                    response.success({"message": "Success", "objectId": business.id, "itemIds": itemIds});
-                                });
-                            });
                         })
 
                     } else {

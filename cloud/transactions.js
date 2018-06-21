@@ -89,9 +89,6 @@ Parse.Cloud.define("openRedeemTransaction", function(request, response) {
     if (typeof businessId === 'undefined')
         return response.error({"message":"'businessId' undefined"});
 
-    if (points <= 0)
-        return response.error({"message":"'points' must be greater than 0"});
-
     // 2. Get the business object to assign as a pointer
     const query = new Parse.Query(Business);
     query.get(businessId)

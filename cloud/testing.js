@@ -258,9 +258,30 @@ Parse.Cloud.define("deleteAllTransactions", function (request, response) {
 Parse.Cloud.define("deleteAllBusinesses", function (request, response) {
 
     const handleError = function (error) { handleTestError(error, response); };
-    
+
     const businessQuery = new Parse.Query(Business);
     businessQuery.find().then(function (results) {
+
+        // Create an array of async functions
+        var promises = [];
+        for (var i = 0; i < results.length; i++)
+            promises.push(results[i].destroy({useMasterKey: true})); // Ignore ACL with MasterKey
+
+        // Execute async functions together and wait for all to complete
+        Promise.all(promises).then(function (results) {
+            response.success({"message": "Success"});
+        }).catch(handleError)
+    }).catch(handleError);
+});
+
+
+// Deletes all businesses
+Parse.Cloud.define("deleteAllRewardModels", function (request, response) {
+
+    const handleError = function (error) { handleTestError(error, response); };
+
+    const rewardModelQuery = new Parse.Query(RewardModel);
+    rewardModelQuery.find().then(function (results) {
 
         // Create an array of async functions
         var promises = [];

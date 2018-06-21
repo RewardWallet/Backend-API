@@ -24,6 +24,14 @@ class Coupon extends Parse.Object {
         return !(typeof this.get("text") === 'undefined') ? this.get("text") : "";
     }
 
+    setIsPublic(value) {
+        this.set("isPublic", value);
+    }
+
+    getIsPublic() {
+        return !(typeof this.get("isPublic") === 'undefined') ? this.get("isPublic") : false;
+    }
+
     setExpires(value) {
         this.set("expireDate", value);
     }

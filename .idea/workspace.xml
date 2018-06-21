@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6154864-1528-42fc-8151-0b4ccc91b7e6" name="Default" comment="Add Some Delete Methods">
+      <change beforePath="$PROJECT_DIR$/cloud/Coupon.js" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/Coupon.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud/testing.js" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/testing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud/transactions.js" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/transactions.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,8 +21,8 @@
       <file leaf-file-name="testing.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cloud/testing.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="166" column="43" selection-start-line="166" selection-start-column="43" selection-end-line="166" selection-end-column="43" />
+            <state relative-caret-position="209">
+              <caret line="119" column="37" selection-start-line="119" selection-start-column="37" selection-end-line="119" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -40,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/cloud/Coupon.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="465">
-              <caret line="31" column="95" selection-start-line="31" selection-start-column="95" selection-end-line="31" selection-end-column="95" />
+              <caret line="31" column="92" selection-start-line="31" selection-start-column="92" selection-end-line="31" selection-end-column="92" />
             </state>
           </provider>
         </entry>
@@ -143,8 +143,8 @@
         <option value="$PROJECT_DIR$/cloud/Business.js" />
         <option value="$PROJECT_DIR$/cloud/RewardModel" />
         <option value="$PROJECT_DIR$/cloud/Transaction.js" />
-        <option value="$PROJECT_DIR$/cloud/Coupon.js" />
         <option value="$PROJECT_DIR$/cloud/transactions.js" />
+        <option value="$PROJECT_DIR$/cloud/Coupon.js" />
         <option value="$PROJECT_DIR$/cloud/testing.js" />
       </list>
     </option>
@@ -1201,7 +1201,7 @@
       <workItem from="1528856197062" duration="28000" />
       <workItem from="1528856359555" duration="41000" />
       <workItem from="1528958885113" duration="1381000" />
-      <workItem from="1529603397816" duration="2036000" />
+      <workItem from="1529603397816" duration="2256000" />
     </task>
     <task id="LOCAL-00001" summary="Add Some Delete Methods">
       <created>1517092274840</created>
@@ -1214,7 +1214,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54811000" />
+    <option name="totallyTimeSpent" value="55031000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1556,13 +1556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud/Coupon.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="95" selection-start-line="31" selection-start-column="95" selection-end-line="31" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cloud/transactions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -1570,10 +1563,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cloud/Coupon.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="92" selection-start-line="31" selection-start-column="92" selection-end-line="31" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cloud/testing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="166" column="43" selection-start-line="166" selection-start-column="43" selection-end-line="166" selection-end-column="43" />
+        <state relative-caret-position="209">
+          <caret line="119" column="37" selection-start-line="119" selection-start-column="37" selection-end-line="119" selection-end-column="37" />
         </state>
       </provider>
     </entry>

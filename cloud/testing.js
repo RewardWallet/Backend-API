@@ -116,7 +116,9 @@ Parse.Cloud.define("createMockBusiness", function (request, response) {
                 coupon.setBusiness(business);
                 coupon.setText("10% Off Any Purchase of $25 or more");
                 var now = new Date();
-                coupon.setExpires(now.getDate()+14);
+                now.setDate(now.getDate()+14);
+                coupon.setExpires(now);
+                coupon.setIsPublic(false);
                 coupon.save().then(function (coupon) {
                     rewardModel.setCoupon(coupon);
                     callback(rewardModel);

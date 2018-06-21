@@ -26,6 +26,11 @@ function randomError(response) {
     }
 }
 
+function sleep(seconds) {
+    var e = new Date().getTime() + (seconds * 1000);
+    while (new Date().getTime() <= e) {}
+}
+
 function handleTestError(error, response) {
     const errorMessage = error.message.charAt(0).toUpperCase() + error.message.slice(1); // Capitalize first letter
     console.log('\x1b[31m%s\x1b[0m', errorMessage);
@@ -86,6 +91,7 @@ Parse.Cloud.define("createMockBusiness", function (request, response) {
     business.set("name", "Business " + name);
     business.set("user", null);
     business.set("email", name + "@rewardwallet.com");
+    business.set("address", "Vancouver, BC");
 
     business.save().then(function (business) {
 
@@ -107,6 +113,10 @@ Parse.Cloud.define("createMockBusiness", function (request, response) {
             } else if (type == 4) {
 
                 const coupon = new Coupon();
+                coupon.setBusiness(business);
+                coupon.setText("10% Off Any Purchase of $25 or more");
+                var now = new Date();
+                coupon.setExpires(now.getDate()+14);
                 coupon.save().then(function (coupon) {
                     rewardModel.setCoupon(coupon);
                     callback(rewardModel);
@@ -141,6 +151,11 @@ Parse.Cloud.define("createMockBusiness", function (request, response) {
                                 randomRewardModel(1, 4, function (rewardModel) {
                                     promises.push(rewardModel.save(null, { useMasterKey: true } ))
                                 })
+                            }
+
+                            while (promises.length < count) {
+                                console.log("...waiting to generate inventory items");
+                                sleep(1);
                             }
                             Promise.all(promises).then(function (rewardModels) {
                                 var promises = [];

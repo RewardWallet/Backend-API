@@ -30,11 +30,11 @@ class Transaction extends Parse.Object {
     }
 
     setDescription(value) {
-        this.set("description", value);
+        this.set("text", value);
     }
 
     getDescription() {
-        return !(typeof this.get("description") === 'undefined') ? this.get("description") : "";
+        return !(typeof this.get("text") === 'undefined') ? this.get("text") : "";
     }
 
     setAmount(value) {

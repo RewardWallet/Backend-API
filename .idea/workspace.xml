@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6154864-1528-42fc-8151-0b4ccc91b7e6" name="Default" comment="Add Some Delete Methods">
-      <change beforePath="$PROJECT_DIR$/cloud/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/User.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cloud/push_notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/push_notifications.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud/transactions.js" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/transactions.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,8 +29,8 @@
       <file leaf-file-name="transactions.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cloud/transactions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+            <state>
+              <caret line="244" lean-forward="true" selection-start-line="244" selection-end-line="244" />
             </state>
           </provider>
         </entry>
@@ -40,8 +38,8 @@
       <file leaf-file-name="push_notifications.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cloud/push_notifications.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="90" column="7" selection-start-line="90" selection-start-column="7" selection-end-line="90" selection-end-column="7" />
+            <state relative-caret-position="440">
+              <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -1204,7 +1202,7 @@
       <workItem from="1528856359555" duration="41000" />
       <workItem from="1528958885113" duration="1381000" />
       <workItem from="1529603397816" duration="3049000" />
-      <workItem from="1530211605436" duration="438000" />
+      <workItem from="1530211605436" duration="1174000" />
     </task>
     <task id="LOCAL-00001" summary="Add Some Delete Methods">
       <created>1517092274840</created>
@@ -1217,7 +1215,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56262000" />
+    <option name="totallyTimeSpent" value="56998000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1559,13 +1557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud/transactions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cloud/Notification.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1573,10 +1564,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cloud/transactions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="244" lean-forward="true" selection-start-line="244" selection-end-line="244" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cloud/push_notifications.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="90" column="7" selection-start-line="90" selection-start-column="7" selection-end-line="90" selection-end-column="7" />
+        <state relative-caret-position="440">
+          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
         </state>
       </provider>
     </entry>

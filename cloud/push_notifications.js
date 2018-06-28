@@ -22,8 +22,17 @@ Parse.Cloud.define("pushToUser", function (request, response) {
 
     Parse.Push.send({ data: payload, where: query }, { useMasterKey: true })
         .then(function (result) {
-            console.log(result);
             response.success(PUSH_SUCCESS);
+            
+            userQuery.find().then(function (users) {
+                for (var i = 0; i < users.length; i++) {
+                    var notification = new Notification();
+                    notification.setUser(users[i]);
+                    notification.setDescription(message);
+                    notification.save();
+                }
+            })
+            
         }).catch(function (error) {
         response.error(PUSH_ERROR(error));
     });
@@ -46,7 +55,6 @@ Parse.Cloud.define("pushToUsers", function (request, response) {
 
     Parse.Push.send({ data: payload, where: query }, { useMasterKey: true })
         .then(function (result) {
-            console.log(result);
             response.success(PUSH_SUCCESS);
         }).catch(function (error) {
         response.error(PUSH_ERROR(error));
@@ -65,7 +73,6 @@ Parse.Cloud.define("pushToChannel", function (request, response) {
 
     Parse.Push.send({ channels: [channel],  data: payload }, { useMasterKey: true })
         .then(function (result) {
-            console.log(result);
             response.success(PUSH_SUCCESS);
         }).catch(function (error) {
         response.error(PUSH_ERROR(error));
@@ -84,7 +91,6 @@ Parse.Cloud.define("pushToChannels", function (request, response) {
 
     Parse.Push.send({ channels: channels, data: payload }, { useMasterKey: true })
         .then(function (result) {
-            console.log(result);
             response.success(PUSH_SUCCESS);
         }).catch(function (error) {
         response.error(PUSH_ERROR(error));

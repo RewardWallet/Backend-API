@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f6154864-1528-42fc-8151-0b4ccc91b7e6" name="Default" comment="Add Some Delete Methods">
-      <change beforePath="$PROJECT_DIR$/cloud/testing.js" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/testing.js" afterDir="false" />
-    </list>
+    <list default="true" id="f6154864-1528-42fc-8151-0b4ccc91b7e6" name="Default" comment="Add Some Delete Methods" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -1200,7 +1198,7 @@
       <workItem from="1528856197062" duration="28000" />
       <workItem from="1528856359555" duration="41000" />
       <workItem from="1528958885113" duration="1381000" />
-      <workItem from="1529603397816" duration="2677000" />
+      <workItem from="1529603397816" duration="3049000" />
     </task>
     <task id="LOCAL-00001" summary="Add Some Delete Methods">
       <created>1517092274840</created>
@@ -1213,7 +1211,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55452000" />
+    <option name="totallyTimeSpent" value="55824000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />

@@ -385,14 +385,14 @@ Parse.Cloud.define("closeRedeemTransaction", function(request, response) {
 // Send a notification to the user of the transaction
 Parse.Cloud.afterSave("Transaction", function(request) {
 
-    // const query = new Parse.Query(Transaction);
-    // query.include("business");
-    // query.get(request.object.id,  { useMasterKey: true }).then(function(transaction) {
-    //     if (transaction.getUser() != null) {
-    //         const message = "Thank you for your purchase of $" + transaction.getAmount() + " at " + transaction.getBusiness().getName();
-    //         Parse.Cloud.run("pushToUser", { user: transaction.getUser().id, message: message });
-    //     }
-    // }).catch(function(error) {
-    //     console.error("Got an error " + error.code + " : " + error.message);
-    // });
+    const query = new Parse.Query(Transaction);
+    query.include("business");
+    query.get(request.object.id,  { useMasterKey: true }).then(function(transaction) {
+        if (transaction.getUser() != null) {
+            const message = "Thank you for your purchase of $" + transaction.getAmount() + " at " + transaction.getBusiness().getName();
+            Parse.Cloud.run("pushToUser", { user: transaction.getUser().id, message: message });
+        }
+    }).catch(function(error) {
+        console.error("Got an error " + error.code + " : " + error.message);
+    });
 });

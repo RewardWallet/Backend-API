@@ -1,0 +1,30 @@
+'use strict';
+
+class Notification extends Parse.User {
+
+    constructor() {
+        // Pass the ClassName to the Parse.Object constructor
+        super('Notification');
+        // All other initialization
+    }
+
+    setDescription(value) {
+        this.set("text", value);
+    }
+
+    getDescription() {
+        return !(typeof this.get("text") === 'undefined') ? this.get("text") : "";
+    }
+
+    setUser(value) {
+        this.set("user", value);
+    }
+
+    getUser() {
+        return !(typeof this.get("user") === 'undefined') ? this.get("user") : null;
+    }
+
+}
+
+Parse.Object.registerSubclass('Notification', Notification);
+module.exports = {Notification};

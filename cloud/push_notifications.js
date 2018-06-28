@@ -1,5 +1,7 @@
 'use strict';
 
+const Notification = require('./Notification').Notification;
+
 const PUSH_SUCCESS = {"message":"Notification Delivered"};
 const PUSH_ERROR = function(error) { return {"message": "Delivery Error" + error.message} };
 
@@ -18,9 +20,11 @@ Parse.Cloud.define("pushToUser", function (request, response) {
         sound: "default"
     };
 
-    Parse.Push.send({ data: payload, where: query }, { useMasterKey: true }).then(function () {
-        response.success(PUSH_SUCCESS);
-    }, function (error) {
+    Parse.Push.send({ data: payload, where: query }, { useMasterKey: true })
+        .then(function (result) {
+            console.log(result);
+            response.success(PUSH_SUCCESS);
+        }).catch(function (error) {
         response.error(PUSH_ERROR(error));
     });
 });
@@ -40,9 +44,11 @@ Parse.Cloud.define("pushToUsers", function (request, response) {
         sound: "default"
     };
 
-    Parse.Push.send({ data: payload,  where: query }, { useMasterKey: true }).then(function () {
-        response.success(PUSH_SUCCESS);
-    }, function (error) {
+    Parse.Push.send({ data: payload, where: query }, { useMasterKey: true })
+        .then(function (result) {
+            console.log(result);
+            response.success(PUSH_SUCCESS);
+        }).catch(function (error) {
         response.error(PUSH_ERROR(error));
     });
 });
@@ -57,9 +63,11 @@ Parse.Cloud.define("pushToChannel", function (request, response) {
         sound: "default"
     };
 
-    Parse.Push.send({ channels: [channel],  data: payload }, { useMasterKey: true }).then(function () {
-        response.success(PUSH_SUCCESS);
-    }, function (error) {
+    Parse.Push.send({ channels: [channel],  data: payload }, { useMasterKey: true })
+        .then(function (result) {
+            console.log(result);
+            response.success(PUSH_SUCCESS);
+        }).catch(function (error) {
         response.error(PUSH_ERROR(error));
     });
 });
@@ -74,9 +82,11 @@ Parse.Cloud.define("pushToChannels", function (request, response) {
         sound: "default"
     };
 
-    Parse.Push.send({ channels: channels, data: payload }, { useMasterKey: true }) .then(function () {
-        response.success(PUSH_SUCCESS);
-    }, function (error) {
+    Parse.Push.send({ channels: channels, data: payload }, { useMasterKey: true })
+        .then(function (result) {
+            console.log(result);
+            response.success(PUSH_SUCCESS);
+        }).catch(function (error) {
         response.error(PUSH_ERROR(error));
     });
 });

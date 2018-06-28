@@ -38,8 +38,8 @@
       <file leaf-file-name="push_notifications.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cloud/push_notifications.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+            <state relative-caret-position="542">
+              <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -1202,7 +1202,7 @@
       <workItem from="1528856359555" duration="41000" />
       <workItem from="1528958885113" duration="1381000" />
       <workItem from="1529603397816" duration="3049000" />
-      <workItem from="1530211605436" duration="1876000" />
+      <workItem from="1530211605436" duration="1929000" />
     </task>
     <task id="LOCAL-00001" summary="Add Some Delete Methods">
       <created>1517092274840</created>
@@ -1215,7 +1215,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57700000" />
+    <option name="totallyTimeSpent" value="57753000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1573,8 +1573,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cloud/push_notifications.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+        <state relative-caret-position="542">
+          <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
         </state>
       </provider>
     </entry>

@@ -398,7 +398,9 @@ Parse.Cloud.afterSave("Transaction", function(request) {
             const notification = new Notification();
             notification.setUser(transaction.getUser())
             notification.setDescription(message);
-            notification.save();
+            notification.save().then(function (result) {
+                console.log("> Notification Sent")
+            });
 
         }
     }).catch(function(error) {

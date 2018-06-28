@@ -1,6 +1,6 @@
 'use strict';
 
-class Notification extends Parse.User {
+class Notification extends Parse.Object {
 
     constructor() {
         // Pass the ClassName to the Parse.Object constructor

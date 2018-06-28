@@ -22,7 +22,7 @@ Parse.Cloud.define("pushToUser", function (request, response) {
         .then(function (result) {
             response.success(PUSH_SUCCESS);
         }).catch(function (error) {
-        response.error(PUSH_ERROR(error));
+            response.error(PUSH_ERROR(error));
     });
 });
 
@@ -45,7 +45,7 @@ Parse.Cloud.define("pushToUsers", function (request, response) {
         .then(function (result) {
             response.success(PUSH_SUCCESS);
         }).catch(function (error) {
-        response.error(PUSH_ERROR(error));
+            response.error(PUSH_ERROR(error));
     });
 });
 
@@ -63,7 +63,7 @@ Parse.Cloud.define("pushToChannel", function (request, response) {
         .then(function (result) {
             response.success(PUSH_SUCCESS);
         }).catch(function (error) {
-        response.error(PUSH_ERROR(error));
+            response.error(PUSH_ERROR(error));
     });
 });
 
@@ -81,6 +81,6 @@ Parse.Cloud.define("pushToChannels", function (request, response) {
         .then(function (result) {
             response.success(PUSH_SUCCESS);
         }).catch(function (error) {
-        response.error(PUSH_ERROR(error));
+            response.error(PUSH_ERROR(error));
     });
 });

@@ -19,24 +19,25 @@ var api = new ParseServer({
   serverURL: serverURL,
   publicServerURL: process.env.PUBLIC_SERVER_URL,
   verbose: false,
-  // push: {
-  //   android: {
-  //       senderId: process.env.ANDROID_SENDER_ID || ''
-  //       apiKey: process.env.ANDROID_API_KEY || ''
-  //   },
-  //   ios: [
-  //     {
-  //       pfx: 'DEV_CERT.p12',
-  //       bundleId: process.env.BUNDLE_ID,
-  //       production: false
-  //     },
-  //     {
-  //       pfx: 'PROD_CERT.p12',
-  //       bundleId: process.env.BUNDLE_ID,
-  //       production: true
-  //     }
-  //   ]
-  // },
+  verifyEmail: true,
+  push: {
+    // android: {
+    //     senderId: process.env.ANDROID_SENDER_ID || ''
+    //     apiKey: process.env.ANDROID_API_KEY || ''
+    // },
+    ios: [
+      {
+        pfx: 'io.rewardwallet.iosclient.dev.push.p12',
+        bundleId: process.env.BUNDLE_ID,
+        production: false
+      },
+      {
+        pfx: 'io.rewardwallet.ios.prod.push.p12',
+        bundleId: process.env.BUNDLE_ID,
+        production: true
+      }
+    ]
+  },
   facebookAppIds: process.env.FACEBOOK_APP_IDS,
   passwordPolicy: {
     validatorPattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/, // enforce password with at least 8 char with at least 1 lower case, 1 upper case and 1 digit

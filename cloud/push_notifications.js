@@ -24,13 +24,17 @@ Parse.Cloud.define("pushToUser", function (request, response) {
         .then(function (result) {
             response.success(PUSH_SUCCESS);
             
-            userQuery.find().then(function (users) {
-                for (var i = 0; i < users.length; i++) {
-                    var notification = new Notification();
-                    notification.setUser(users[i]);
-                    notification.setDescription(message);
-                    notification.save();
-                }
+            userQuery.find()
+                .then(function (users) {
+                    console.log(users);
+                    for (var i = 0; i < users.length; i++) {
+                        var notification = new Notification();
+                        notification.setUser(users[i]);
+                        notification.setDescription(message);
+                        notification.save();
+                    }
+                }).catch(function (error) {
+                    console.log(error);
             })
             
         }).catch(function (error) {

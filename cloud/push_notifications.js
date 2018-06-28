@@ -23,8 +23,10 @@ Parse.Cloud.define("pushToUser", function (request, response) {
     Parse.Push.send({ data: payload, where: query }, { useMasterKey: true })
         .then(function (result) {
             response.success(PUSH_SUCCESS);
-            
-            userQuery.find()
+
+            const query = new Parse.Query(Parse.User);
+            query.equalTo('objectId', user);
+            query.find()
                 .then(function (users) {
                     for (var i = 0; i < users.length; i++) {
                         console.log(users[i]);

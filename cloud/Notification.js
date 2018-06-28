@@ -6,6 +6,11 @@ class Notification extends Parse.User {
         // Pass the ClassName to the Parse.Object constructor
         super('Notification');
         // All other initialization
+
+        // Only read access to the transaction
+        var acl = new Parse.ACL();
+        acl.setPublicReadAccess(true);
+        this.setACL(acl);
     }
 
     setDescription(value) {

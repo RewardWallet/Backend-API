@@ -26,12 +26,12 @@ Parse.Cloud.define("pushToUser", function (request, response) {
             
             userQuery.find()
                 .then(function (users) {
-                    console.log(users);
                     for (var i = 0; i < users.length; i++) {
+                        console.log(users[i]);
                         var notification = new Notification();
                         notification.setUser(users[i]);
                         notification.setDescription(message);
-                        notification.save();
+                        notification.save(null, { useMasterKey: true } )
                     }
                 }).catch(function (error) {
                     console.log(error);

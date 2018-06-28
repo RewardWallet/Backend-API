@@ -22,7 +22,7 @@ Parse.Cloud.define("pushToUser", function (request, response) {
 
     Parse.Push.send({ data: payload, where: query }, { useMasterKey: true })
         .then(function (result) {
-
+            response.success(PUSH_SUCCESS);
 
             const query = new Parse.Query(Parse.User);
             query.equalTo('objectId', user);
@@ -33,12 +33,13 @@ Parse.Cloud.define("pushToUser", function (request, response) {
                         var notification = new Notification();
                         notification.setUser(users[i]);
                         notification.setDescription(message);
-                        notification.save(null, { useMasterKey: true } )
+                        notification.save(null, { useMasterKey: true } ).then(function (result) {
+                            console.log(result);
+                        });
                     }
                 }).catch(function (error) {
                     console.log(error);
             })
-            response.success(PUSH_SUCCESS);
             
         }).catch(function (error) {
         response.error(PUSH_ERROR(error));

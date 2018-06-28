@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6154864-1528-42fc-8151-0b4ccc91b7e6" name="Default" comment="Add Some Delete Methods">
-      <change beforePath="$PROJECT_DIR$/cloud/Notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/Notification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud/push_notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/push_notifications.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud/transactions.js" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/transactions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,16 +44,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+            <state relative-caret-position="447">
+              <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="45" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Notification.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Notification.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cloud/Notification.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
@@ -134,7 +132,6 @@
         <option value="$PROJECT_DIR$/cloud/main.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/cloud/DigitalCard" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/dashboard.js" />
         <option value="$PROJECT_DIR$/cloud/Inventory.js" />
         <option value="$PROJECT_DIR$/cloud/Coin.js" />
@@ -148,6 +145,7 @@
         <option value="$PROJECT_DIR$/cloud/push_notifications.js" />
         <option value="$PROJECT_DIR$/cloud/transactions.js" />
         <option value="$PROJECT_DIR$/cloud/Notification.js" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -1204,7 +1202,7 @@
       <workItem from="1528856359555" duration="41000" />
       <workItem from="1528958885113" duration="1381000" />
       <workItem from="1529603397816" duration="3049000" />
-      <workItem from="1530211605436" duration="3620000" />
+      <workItem from="1530211605436" duration="3738000" />
     </task>
     <task id="LOCAL-00001" summary="Add Some Delete Methods">
       <created>1517092274840</created>
@@ -1217,7 +1215,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59444000" />
+    <option name="totallyTimeSpent" value="59562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1531,13 +1529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cloud/Coupon.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -1577,6 +1568,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="39" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="45" selection-end-column="7" />
         </state>
       </provider>
     </entry>

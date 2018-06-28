@@ -39,11 +39,11 @@ var api = new ParseServer({
     ]
   },
   facebookAppIds: process.env.FACEBOOK_APP_IDS,
-  passwordPolicy: {
-    validatorPattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/, // enforce password with at least 8 char with at least 1 lower case, 1 upper case and 1 digit
-    doNotAllowUsername: true, // optional setting to disallow username in passwords
-    resetTokenValidityDuration: 24*60*60, // expire after 24 hours
-  },
+  // passwordPolicy: {
+  //   validatorPattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/, // enforce password with at least 8 char with at least 1 lower case, 1 upper case and 1 digit
+  //   doNotAllowUsername: true, // optional setting to disallow username in passwords
+  //   resetTokenValidityDuration: 24*60*60, // expire after 24 hours
+  // },
   emailAdapter: {
     module: '@parse/simple-mailgun-adapter',
     options: {

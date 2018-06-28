@@ -7,6 +7,7 @@ const Business = require('./Business').Business;
 const DigitalCard = require('./DigitalCard').DigitalCard;
 const RewardModel = require('./RewardModel').RewardModel;
 const Coupon = require('./Coupon').Coupon;
+const Notification = require('./Notification').Notification;
 
 // Opens a transaction object for the business
 // Parameter Example:
@@ -387,10 +388,18 @@ Parse.Cloud.afterSave("Transaction", function(request) {
 
     const query = new Parse.Query(Transaction);
     query.include("business");
+    query.include("user");
+    query.exists("user");
     query.get(request.object.id,  { useMasterKey: true }).then(function(transaction) {
         if (transaction.getUser() != null) {
             const message = "Thank you for your purchase of $" + transaction.getAmount() + " at " + transaction.getBusiness().getName();
             Parse.Cloud.run("pushToUser", { user: transaction.getUser().id, message: message });
+
+            const notification = new Notification();
+            notification.setUser(transaction.getUser())
+            notification.setDescription(message);
+            notification.save();
+
         }
     }).catch(function(error) {
         console.error("Got an error " + error.code + " : " + error.message);

@@ -1,7 +1,5 @@
 'use strict';
 
-const Notification = require('./Notification').Notification;
-
 const PUSH_SUCCESS = {"message":"Notification Delivered"};
 const PUSH_ERROR = function(error) { return {"message": "Delivery Error" + error.message} };
 
@@ -23,16 +21,6 @@ Parse.Cloud.define("pushToUser", function (request, response) {
     Parse.Push.send({ data: payload, where: query }, { useMasterKey: true })
         .then(function (result) {
             response.success(PUSH_SUCCESS);
-
-            userQuery.get(user).then(function (object) {
-                const notification = new Notification();
-                notification.setUser(object);
-                notification.setDescription(message);
-                notification.save(null, { useMasterKey: true } ).then(function (result) {
-                    console.log(result);
-                });
-            });
-            
         }).catch(function (error) {
         response.error(PUSH_ERROR(error));
     });

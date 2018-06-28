@@ -24,22 +24,14 @@ Parse.Cloud.define("pushToUser", function (request, response) {
         .then(function (result) {
             response.success(PUSH_SUCCESS);
 
-            const query = new Parse.Query(Parse.User);
-            query.equalTo('objectId', user);
-            query.find()
-                .then(function (users) {
-                    for (var i = 0; i < users.length; i++) {
-                        console.log(users[i]);
-                        var notification = new Notification();
-                        notification.setUser(users[i]);
-                        notification.setDescription(message);
-                        notification.save(null, { useMasterKey: true } ).then(function (result) {
-                            console.log(result);
-                        });
-                    }
-                }).catch(function (error) {
-                    console.log(error);
-            })
+            userQuery.get(user).then(function (object) {
+                const notification = new Notification();
+                notification.setUser(object);
+                notification.setDescription(message);
+                notification.save(null, { useMasterKey: true } ).then(function (result) {
+                    console.log(result);
+                });
+            });
             
         }).catch(function (error) {
         response.error(PUSH_ERROR(error));

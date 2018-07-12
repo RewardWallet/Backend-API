@@ -28,7 +28,7 @@ const Notification = require('./Notification').Notification;
 Parse.Cloud.define("openTransaction", function(request, response) {
 
     const amount = request.params.amount;
-    const itemCount = request.params.itemCount;
+    var itemCount = request.params.itemCount;
     const inventoryItems = request.params.inventoryItems;
     const businessId = request.params.businessId;
 

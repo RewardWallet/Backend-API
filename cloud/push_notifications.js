@@ -29,7 +29,9 @@ Parse.Cloud.define("sendNotificationToCustomers", function (request, response) {
                 notification.setDescription(message);
                 promises.push(notification.save());
             }
-            Promise.all(promises).then(response.success(PUSH_SUCCESS);)
+            Promise.all(promises).then(function () {
+                response.success(PUSH_SUCCESS)
+            })
 
         }).catch(function (error) {
             response.error(PUSH_ERROR(error))

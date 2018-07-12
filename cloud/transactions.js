@@ -238,6 +238,15 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
                             } else {
                                 throw response.error({"message":"Did not meet threshold transaction amount of " + rewardModel.getGiftCardThreshold()});
                             }
+                        } else if (rewardModel.getType() == 4) {
+
+                            if (rewardModel.getCoupon() != null) {
+                                transaction.setDescription("Awarded a coupon");
+                                user.availableCoupons().add(rewardModel.getCoupon());
+                                user.save(null, { useMasterKey: true })
+                            } else {
+                                throw response.error({"message":"RewardModel does not contain a coupon"});
+                            }
                         }
                         return Math.round(points * 100) / 100; // Round to two decimals
                     };
@@ -271,9 +280,7 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
                             for (var i = 0; i < items.length; i++) {
                                 const rewardModel = items[i].get("rewardModel");
                                 if (rewardModel != null) {
-                                    console.log(transaction.getItems());
                                     let repeatedCount = transaction.getItems().filter(function (str) { return str == items[i].id; }).length;
-                                    console.log("REPEATED: " + repeatedCount);
                                     const newPoints = calculateNewPoints(rewardModel, null, items[i]) * repeatedCount;
                                     points = points + newPoints;
                                 } else {

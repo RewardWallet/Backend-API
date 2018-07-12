@@ -22,15 +22,14 @@ Parse.Cloud.define("sendNotificationToCustomers", function (request, response) {
         userQuery.containedIn('objectId', userIds);
         userQuery.find().then(function (users) {
 
+            var promises = []
             for (var i = 0; i < users.length; i++) {
                 const notification = new Notification();
                 notification.setUser(users[i])
                 notification.setDescription(message);
-                notification.save().then(function (result) {
-                    console.log("> Notification Sent")
-                });
+                promises.push(notification.save());
             }
-            response.success(PUSH_SUCCESS);
+            Promise.all(promises).then(response.success(PUSH_SUCCESS);)
 
         }).catch(function (error) {
             response.error(PUSH_ERROR(error))

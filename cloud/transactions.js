@@ -241,7 +241,6 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
                         } else if (rewardModel.getType() == 4) {
 
                             if (rewardModel.getCoupon() != null) {
-                                transaction.setDescription("Awarded a coupon");
                                 user.availableCoupons().add(rewardModel.getCoupon());
                                 user.save(null, { useMasterKey: true })
                             } else {

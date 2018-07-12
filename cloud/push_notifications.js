@@ -12,7 +12,7 @@ Parse.Cloud.define("sendNotificationToCustomers", function (request, response) {
     const message = request.params.message;
     
     const cardQuery = new Parse.Query(DigitalCard);
-    cardQuery.where('business', businessId);
+    cardQuery.equals('business', businessId);
     cardQuery.find().then(function (cards) {
 
         const userIds = cards.map( card => card.get('user').id);

@@ -12,14 +12,14 @@ Parse.Cloud.define("sendNotificationToCustomers", function (request, response) {
     const message = request.params.message;
     
     const cardQuery = new Parse.Query(DigitalCard);
-    cardQuery.equals('business', businessId);
+    cardQuery.equalTo('business', businessId);
     cardQuery.find().then(function (cards) {
 
         const userIds = cards.map( card => card.get('user').id);
         Parse.Cloud.run("pushToUsers", { users: userIds, message: message });
 
         const userQuery = new Parse.Query(Parse.User);
-        userQuery.contains('objectId', userIds);
+        userQuery.containedIn('objectId', userIds);
         userQuery.find().then(function (users) {
 
             for (var i = 0; i < users.length; i++) {

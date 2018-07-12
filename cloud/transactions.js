@@ -404,7 +404,16 @@ Parse.Cloud.afterSave("Transaction", function(request) {
     query.exists("user");
     query.get(request.object.id,  { useMasterKey: true }).then(function(transaction) {
         if (transaction.getUser() != null) {
-            const message = "Thank you for your purchase of $" + transaction.getAmount() + " at " + transaction.getBusiness().getName();
+
+            var message = "";
+
+            if (transaction.isRedeeming()) {
+                message = "You redeemed " + transaction.getRewardPointsRequired() + " at " + transaction.getBusiness().getName();
+            } else {
+                message = "Thank you for your purchase of $" + transaction.getAmount() + " at " + transaction.getBusiness().getName();
+            }
+
+
             Parse.Cloud.run("pushToUser", { user: transaction.getUser().id, message: message });
 
             const notification = new Notification();

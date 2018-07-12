@@ -1,7 +1,45 @@
 'use strict';
 
+const DigitalCard = require('./DigitalCard').DigitalCard;
+const Notification = require('./Notification').Notification;
+
 const PUSH_SUCCESS = {"message":"Notification Delivered"};
 const PUSH_ERROR = function(error) { return {"message": "Delivery Error" + error.message} };
+
+Parse.Cloud.define("sendNotificationToCustomers", function (request, response) {
+
+    const businessId = request.params.businessId;
+    const message = request.params.message;
+    
+    const cardQuery = new Parse.Query(DigitalCard);
+    cardQuery.where('business', businessId);
+    cardQuery.find().then(function (cards) {
+
+        const userIds = cards.map( card => card.get('user').id);
+        Parse.Cloud.run("pushToUsers", { users: userIds, message: message });
+
+        const userQuery = new Parse.Query(Parse.User);
+        userQuery.contains('objectId', userIds);
+        userQuery.find().then(function (users) {
+
+            for (var i = 0; i < users.length; i++) {
+                const notification = new Notification();
+                notification.setUser(users[i])
+                notification.setDescription(message);
+                notification.save().then(function (result) {
+                    console.log("> Notification Sent")
+                });
+            }
+            response.success(PUSH_SUCCESS);
+
+        }).catch(function (error) {
+            response.error(PUSH_ERROR(error))
+        });
+        
+    }).catch(function (error) {
+        response.error(PUSH_ERROR(error))
+    });
+});
 
 Parse.Cloud.define("pushToUser", function (request, response) {
 

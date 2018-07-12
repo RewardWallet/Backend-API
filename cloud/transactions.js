@@ -20,7 +20,8 @@ const Notification = require('./Notification').Notification;
 // OR
 //
 // {
-//  "items": ["GEkx6rz7rD","GEkx6rz7rD", "GEkx6rz7rD"],
+//  "amount": 10.00,
+//  "inventoryItems": ["GEkx6rz7rD","GEkx6rz7rD", "GEkx6rz7rD"],
 // 	"businessId": "GEkx6rz7rD"
 // }
 // Returns a Transaction objects id
@@ -45,6 +46,8 @@ Parse.Cloud.define("openTransaction", function(request, response) {
         return response.error({"message":"'amount' undefined"});
     }
 
+    if (typeof itemCount === 'undefined')
+        itemCount = inventoryItems.length;
 
     // 2. Get the business object to assign as a pointer
     const query = new Parse.Query(Business);

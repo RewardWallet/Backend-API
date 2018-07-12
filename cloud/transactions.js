@@ -242,7 +242,7 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
                         return Math.round(points * 100) / 100; // Round to two decimals
                     };
 
-                    if ((rewardModel.getType() == -1) || (rewardModel.getType() > 5)) {
+                    if ((rewardModel.getType() < 1) || (rewardModel.getType() > 5)) {
                         throw response.error({"message":"Unknown reward distribution model"});
 
                     } else if (rewardModel.getType() == 4) {
@@ -271,7 +271,8 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
                             for (var i = 0; i < items.length; i++) {
                                 const rewardModel = items[i].get("rewardModel");
                                 if (rewardModel!= null) {
-                                    const newPoints = calculateNewPoints(rewardModel, null, items[i]);
+                                    let repeatedCount = transaction.getItems().filter(function (str) { return str.includes(items[i].get("objectId")); }).length
+                                    const newPoints = calculateNewPoints(rewardModel, null, items[i]) * repeatedCount;
                                     points = points + newPoints;
                                 } else {
                                     console.log("Inventory object " + items[i].id + " did not have an assigned RewardModel")

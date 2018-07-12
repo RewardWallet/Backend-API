@@ -15,7 +15,7 @@ Parse.Cloud.define("sendNotificationToCustomers", function (request, response) {
     cardQuery.equalTo('business', businessId);
     cardQuery.find().then(function (cards) {
 
-        const userIds = cards.map( card => card.get('user').id);
+        const userIds = cards.map( card => card.get('user').get('objectId'));
         Parse.Cloud.run("pushToUsers", { users: userIds, message: message });
 
         const userQuery = new Parse.Query(Parse.User);

@@ -270,8 +270,10 @@ Parse.Cloud.define("closeTransaction", function(request, response) {
                             var points = 0;
                             for (var i = 0; i < items.length; i++) {
                                 const rewardModel = items[i].get("rewardModel");
-                                if (rewardModel!= null) {
-                                    let repeatedCount = transaction.getItems().filter(function (str) { return str.includes(items[i].get("objectId")); }).length
+                                if (rewardModel != null) {
+                                    console.log(transaction.getItems());
+                                    let repeatedCount = transaction.getItems().filter(function (str) { return str == items[i].get("objectId"); }).length;
+                                    console.log("REPEATED: " + repeatedCount);
                                     const newPoints = calculateNewPoints(rewardModel, null, items[i]) * repeatedCount;
                                     points = points + newPoints;
                                 } else {

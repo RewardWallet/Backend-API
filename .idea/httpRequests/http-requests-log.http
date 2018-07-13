@@ -1,3 +1,224 @@
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T073203.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T073158.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T073145.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T073029.400.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T073026.400.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T072822.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T072726.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T072723.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T072721.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T072646.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T072544.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T072515.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T072511.400.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T072453.400.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T072330.400.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T072315.200.json
+
+###
+
+POST http://localhost:1337/parse/functions/sendNotificationToCustomers
+Accept: */*
+Cache-Control: no-cache
+X-Parse-Application-ID: myAppId
+X-Parse-Master-Key: myMasterKey
+Content-Type: application/json
+
+{"businessId":"0qhqhDvNec","message":"Hello, World!"}
+
+<> 2018-07-12T072203.200.json
+
+###
+
 POST http://localhost:1337/parse/functions/testTransaction
 Accept: */*
 Cache-Control: no-cache
@@ -318,177 +539,6 @@ Cache-Control: no-cache
 X-Parse-Application-ID: myAppId
 X-Parse-Master-Key: myMasterKey
 Content-Type: application/json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-<> 2018-06-12T115623.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-<> 2018-06-12T115619.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-<> 2018-06-12T115613.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-<> 2018-06-12T115517.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-<> 2018-06-12T115514.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-<> 2018-06-12T115513.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-<> 2018-06-12T115511.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-<> 2018-06-12T115509.200.json
-
-###
-
-POST http://localhost:1337/parse/functions/testTransaction
-Accept: */*
-Cache-Control: no-cache
-X-Parse-Application-ID: myAppId
-X-Parse-Master-Key: myMasterKey
-Content-Type: application/json
-
-<> 2018-06-12T115506.200.json
 
 ###
 

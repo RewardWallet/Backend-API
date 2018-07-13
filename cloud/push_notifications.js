@@ -1,5 +1,6 @@
 'use strict';
 
+const Business = require('./Business').Business;
 const DigitalCard = require('./DigitalCard').DigitalCard;
 const Notification = require('./Notification').Notification;
 
@@ -12,29 +13,32 @@ Parse.Cloud.define("sendNotificationToCustomers", function (request, response) {
     const message = request.params.message;
     
     const cardQuery = new Parse.Query(DigitalCard);
-    cardQuery.equalTo('business', businessId);
-    cardQuery.find().then(function (cards) {
+    const business = new Business()
+    business.id = businessId;
+    cardQuery.equalTo('business', business);
+    cardQuery.find()
+        .then(function (cards) {
 
-        const userIds = cards.map( card => card.get('user').get('objectId'));
-        Parse.Cloud.run("pushToUsers", { users: userIds, message: message });
+            const userIds = cards.map( card => card.get('user').id);
+            Parse.Cloud.run("pushToUsers", { users: userIds, message: message });
 
-        const userQuery = new Parse.Query(Parse.User);
-        userQuery.containedIn('objectId', userIds);
-        userQuery.find().then(function (users) {
+            const userQuery = new Parse.Query(Parse.User);
+            userQuery.containedIn('objectId', userIds);
+            userQuery.find().then(function (users) {
 
-            var promises = []
-            for (var i = 0; i < users.length; i++) {
-                const notification = new Notification();
-                notification.setUser(users[i])
-                notification.setDescription(message);
-                promises.push(notification.save());
-            }
-            Promise.all(promises).then(function () {
-                response.success(PUSH_SUCCESS)
-            })
+                var promises = []
+                for (var i = 0; i < users.length; i++) {
+                    const notification = new Notification();
+                    notification.setUser(users[i])
+                    notification.setDescription(message);
+                    promises.push(notification.save());
+                }
+                Promise.all(promises).then(function () {
+                    response.success(PUSH_SUCCESS)
+                })
 
-        }).catch(function (error) {
-            response.error(PUSH_ERROR(error))
+            }).catch(function (error) {
+                response.error(PUSH_ERROR(error))
         });
         
     }).catch(function (error) {

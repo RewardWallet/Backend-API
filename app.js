@@ -69,6 +69,18 @@ var app = express();
 
 app.use(mountPath, api);
 
+app.post("/deploy", function(request, response) {
+    console.log("> Deploying updates...");
+    require('child_process').exec('sh deploy.sh', function(error, stdout, stderr) {
+        if (error) {
+            console.log("> Deployment Failed");
+            return response.json(error);
+        }
+        console.log("> Updates Deployed Successfully");
+        response.json({"code": 200, "status": "DormHub Deployed"});
+    });
+})
+
 // Parse Server plays nicely with the rest of your web routes
 app.get('/status', function(req, res) {
   res.status(200).send('Online');

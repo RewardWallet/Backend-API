@@ -2,6 +2,7 @@
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
+var childProcess = require('child_process');
 require('dotenv').config();
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
@@ -71,13 +72,13 @@ app.use(mountPath, api);
 
 app.post("/deploy", function(request, response) {
     console.log("> Deploying updates...");
-    require('child_process').exec('sh deploy.sh', function(error, stdout, stderr) {
+    childProcess.exec('sh deploy.sh', function(error, stdout, stderr) {
         if (error) {
             console.log("> Deployment Failed");
             return response.json(error);
         }
         console.log("> Updates Deployed Successfully");
-        response.json({"code": 200, "status": "DormHub Deployed"});
+        response.json({"code": 200, "status": "Successfully Deployed"});
     });
 })
 
